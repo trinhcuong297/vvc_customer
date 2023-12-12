@@ -22,10 +22,7 @@
 This module is linked with VVC Green app!
     """,
     "depends": [],
-    "data": [
-        'views\menu.xml',
-        'views\customer.xml'
-    ],
+    "data": [],
     'assets': {},
     "test": [],
     'installable': True,
