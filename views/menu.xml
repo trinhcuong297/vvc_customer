@@ -79,11 +79,11 @@
                         <field name="status" />
                     </group>
                 </sheet>
-                <div class="oe_chatter">
+                <!-- <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
                     <field name="activity_ids" widget="mail_activity"/>
                     <field name="message_ids" widget="mail_thread"/>
-                </div>
+                </div> -->
             </form>
         </field>
     </record>
@@ -124,6 +124,8 @@
         <field name="context">{}</field>
     </record>
 
+
+    <!-- menuitem -->
     <menuitem
             id="vvc_customer_root_menu"
             name="VVC Customer"
@@ -140,5 +142,5 @@
             id="vvc_all_archive"
             action="vvc_archive_action"
             name="Đơn hàng"
-            sequence="4"/>
+            sequence="2"/>
 </odoo>
