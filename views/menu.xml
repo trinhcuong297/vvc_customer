@@ -35,8 +35,6 @@
                 <field name="archiveNeeded"/>
                 <field name="billNeeded"/>
                 <field name="errorNum"/>
-                <field name="email"/>
-                <field name="password"/>
             </tree>
         </field>
     </record>
