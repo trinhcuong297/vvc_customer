@@ -21,7 +21,9 @@
     "description": """
 This module is linked with VVC Green app!
     """,
-    "depends": [],
+    "depends": [
+        'mail'
+    ],
     "data": [
         "security/ir.model.access.csv",
         "views/menu.xml"

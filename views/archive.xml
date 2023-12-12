@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+   
+    <record id="vvc_archive_action_form" model="ir.ui.view">
+        <field name="name">customer.archive.form</field>
+        <field name="model">customer.archive</field>
+        <field name="arch" type="xml">
+            <form string="Chi tiết đơn hàng">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="homeLocation"/>
+                        <field name="project"/>
+                        <field name="status" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="vvc_archive_action_tree" model="ir.ui.view">
+        <field name="name">customer.archive.tree</field>
+        <field name="model">customer.archive</field>
+        <field name="arch" type="xml">
+            <tree string="List đơn hàng">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="homeLocation"/>
+                <field name="project"/>
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="vvc_archive_action_search" model="ir.ui.view">
+        <field name="name">customer.archive.search</field>
+        <field name="model">customer.archive</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="homeLocation"/>
+                <field name="project"/>
+                <field name="status" />
+            </search>
+        </field>
+    </record>
+
+    <record id="vvc_archive_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Hàng kí gửi</field>
+        <field name="res_model">customer.archive</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+            parent="vvc_customer_root_menu"
+            id="vvc_all_archive"
+            action="vvc_archive_action"
+            name="Khách hàng"
+            sequence="3"/>
+</odoo>
