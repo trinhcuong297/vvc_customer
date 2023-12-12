@@ -23,6 +23,24 @@
         </field>
     </record>
 
+    <record id="vvc_customer_action_tree" model="ir.ui.view">
+        <field name="name">customer.account.tree</field>
+        <field name="model">customer.account</field>
+        <field name="arch" type="xml">
+            <tree string="List khách hàng">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="homeLocation"/>
+                <field name="project"/>
+                <field name="archiveNeeded"/>
+                <field name="billNeeded"/>
+                <field name="errorNum"/>
+                <field name="email"/>
+                <field name="password"/>
+            </tree>
+        </field>
+    </record>
+
     <record id="vvc_customer_action" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
         <field name="name">Khách hàng</field>
