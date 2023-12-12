@@ -60,10 +60,5 @@
         <field name="context">{}</field>
     </record>
 
-    <menuitem
-            parent="vvc_customer_root_menu"
-            id="vvc_all_archive"
-            action="vvc_archive_action"
-            name="Khách hàng"
-            sequence="3"/>
+    
 </odoo>

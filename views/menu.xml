@@ -73,4 +73,11 @@
             action="vvc_customer_action"
             name="Khách hàng"
             sequence="3"/>
+
+    <menuitem
+    parent="vvc_customer_root_menu"
+    id="vvc_all_archive"
+    action="vvc_archive_action"
+    name="Đơn hàng"
+    sequence="4"/>
 </odoo>
