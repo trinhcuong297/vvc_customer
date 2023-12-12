@@ -39,6 +39,22 @@
         </field>
     </record>
 
+    <record id="vvc_customer_action_search" model="ir.ui.view">
+        <field name="name">customer.account.search</field>
+        <field name="model">customer.account</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="homeLocation"/>
+                <field name="project"/>
+                <field name="archiveNeeded"/>
+                <field name="billNeeded"/>
+                <field name="errorNum"/>
+            </search>
+        </field>
+    </record>
+
     <record id="vvc_customer_action" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
         <field name="name">Khách hàng</field>
