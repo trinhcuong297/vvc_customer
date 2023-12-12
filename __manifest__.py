@@ -23,6 +23,7 @@ This module is linked with VVC Green app!
     """,
     "depends": [],
     "data": [
+        "security\ir.model.access.csv",
         "views/menu.xml"
     ],
     'assets': {},
