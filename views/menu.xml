@@ -142,5 +142,5 @@
             id="vvc_all_archive"
             action="vvc_archive_action"
             name="Đơn hàng"
-            sequence="2"/>
+            sequence="4"/>
 </odoo>
