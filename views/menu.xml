@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+   
+    <record id="vvc_customer_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Khách hàng</field>
+        <field name="res_model">customer.account</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">tree</field>
+        <field name="target">current</field>
+        <field name="domain">[]</field>
+        <field name="context">\{}</field>
+        <field name="search_view_id" ref="ir.ui.view" />
+    </record>
+    
+
+    <menuitem
+            id="vvc_customer_root_menu"
+            name="VVC Customer"
+            sequence="6"/>
+    <menuitem
+            parent="vvc_customer_root_menu"
+            id="vvc_all_customer"
+            action="vvc_customer_action"
+            name="Khách hàng"
+            sequence="3"/>
+</odoo>
