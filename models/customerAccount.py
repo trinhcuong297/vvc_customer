@@ -3,6 +3,7 @@ from odoo import api, fields, models
 
 class CustomerAccount(models.Model):
     _name = 'customer.account'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Customer Type"
 
     name = fields.Char(string = "Tên")
