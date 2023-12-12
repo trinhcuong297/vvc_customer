@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
    
+    <record id="customer.account_view_form" model="ir.ui.view">
+        <field name="name">customer.account.view.form</field>
+        <field name="model">customer.account</field>
+        <field name="arch" type="xml">
+            <form string="Chi tiết khách hàng">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="homeLocation"/>
+                        <field name="project"/>
+                        <field name="archiveNeeded"/>
+                        <field name="billNeeded"/>
+                        <field name="errorNum"/>
+                        <field name="email"/>
+                        <field name="password"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="vvc_customer_action" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
         <field name="name">Khách hàng</field>
@@ -8,7 +30,6 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
     </record>
-    
 
     <menuitem
             id="vvc_customer_root_menu"
