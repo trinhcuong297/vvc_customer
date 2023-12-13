@@ -9,7 +9,6 @@ class ArchiveList(models.Model):
     user_id = fields.Many2one(
         string='User',
         comodel_name='customer.account',
-        ondelete='restrict',
     )
     name = fields.Char(string = "Tên người nhận", tracking = "True")
     phone = fields.Char(string = "Số điện thoại nhận", tracking = "True")
