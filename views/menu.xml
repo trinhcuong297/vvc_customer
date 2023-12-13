@@ -81,7 +81,7 @@
                         <field name="name"/>
                         <field name="phone"/>
                         <field name="homeLocation"/>
-                        <field name="project"/>
+                        <!-- <field name="project"/> -->
                         <field name="inputURL"/>
                         <field name="outputURL"/>
                         <field name="status" />
@@ -104,7 +104,7 @@
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="homeLocation"/>
-                <field name="project"/>
+                <!-- <field name="project"/> -->
                 <field name="status" />
             </tree>
         </field>
@@ -119,7 +119,7 @@
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="homeLocation"/>
-                <field name="project"/>
+                <!-- <field name="project"/> -->
                 <field name="status" />
             </search>
         </field>
