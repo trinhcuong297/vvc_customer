@@ -6,10 +6,12 @@ class ArchiveList(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Bill Type"
 
-    name = fields.Char(string = "Tên người nhận")
-    phone = fields.Char(string = "Số điện thoại nhận")
+    user_id = fields.Many2Many(
+        string='User',
+        comodel_name='customer.account',
+    )
     homeLocation = fields.Char(string = "Vị trí căn hộ nhận")
-    project = fields.Char(string = "Dự án")
-    # inputTime = fields.Char(string = "Thời gian nhận")
-    # outputTime = fields.Char(string = "Thời gian trả")
+    project = fields.Many2one(string = "Dự án", comodel_name='project.project')
+    type = fields.Char(string = "Tên hóa đơn")
+    total = fields.Char(string = "Số tiền cần trả")
     status = fields.Selection([('store', 'Chưa thanh toán'),('sended','Đã thanh toán')],string = "Trạng thái")

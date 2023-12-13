@@ -6,9 +6,11 @@ class ArchiveList(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Error Type"
 
-    name = fields.Char(string = "Người báo lỗi")
+    user_id = fields.Many2one(
+        string='Người báo lỗi',
+        comodel_name='customer.account',
+    )
     errLocation = fields.Char(string = "Vị trí báo lỗi")
     desc = fields.Char(string = "Mô tả")
-    # inputTime = fields.Char(string = "Thời gian nhận")
-    # outputTime = fields.Char(string = "Thời gian trả")
+    imgURL = fields.Char(string = "Link ảnh mô tả")
     status = fields.Selection([('store', 'Chưa xử lý'),('sended','Đã xử lý')],string = "Trạng thái")

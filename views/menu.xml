@@ -141,10 +141,11 @@
             <form string="Chi tiết hóa đơn">
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="phone"/>
+                        <field name="user_id"/>
                         <field name="homeLocation"/>
                         <field name="project"/>
+                        <field name="type"/>
+                        <field name="total"/>
                         <field name="status" />
                     </group>
                 </sheet>
@@ -162,10 +163,11 @@
         <field name="model">customer.bill</field>
         <field name="arch" type="xml">
             <tree string="List hóa đơn">
-                <field name="name"/>
-                <field name="phone"/>
+                <field name="user_id"/>
                 <field name="homeLocation"/>
                 <field name="project"/>
+                <field name="type"/>
+                <field name="total"/>
                 <field name="status" />
             </tree>
         </field>
@@ -176,10 +178,11 @@
         <field name="model">customer.bill</field>
         <field name="arch" type="xml">
             <search>
-                <field name="name"/>
-                <field name="phone"/>
+                <field name="user_id"/>
                 <field name="homeLocation"/>
                 <field name="project"/>
+                <field name="type"/>
+                <field name="total"/>
                 <field name="status" />
             </search>
         </field>
@@ -201,9 +204,10 @@
             <form string="Chi tiết hóa đơn">
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <field name="user_id"/>
                         <field name="errLocation"/>
                         <field name="desc"/>
+                        <field name="imgURL"/>
                         <field name="status" />
                     </group>
                 </sheet>
@@ -221,9 +225,10 @@
         <field name="model">customer.error</field>
         <field name="arch" type="xml">
             <tree string="List hóa đơn">
-                <field name="name"/>
+                <field name="user_id"/>
                 <field name="errLocation"/>
                 <field name="desc"/>
+                <field name="imgURL"/>
                 <field name="status" />
             </tree>
         </field>
@@ -234,9 +239,10 @@
         <field name="model">customer.error</field>
         <field name="arch" type="xml">
             <search>
-                <field name="name"/>
+                <field name="user_id"/>
                 <field name="errLocation"/>
                 <field name="desc"/>
+                <field name="imgURL"/>
                 <field name="status" />
             </search>
         </field>
