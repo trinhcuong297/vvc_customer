@@ -82,8 +82,8 @@
                         <field name="phone"/>
                         <field name="homeLocation"/>
                         <!-- <field name="project"/> -->
-                        <field name="inputURL"/>
-                        <field name="outputURL"/>
+                        <field name="inputImage"/>
+                        <field name="outputImage"/>
                         <field name="status" />
                     </group>
                 </sheet>
