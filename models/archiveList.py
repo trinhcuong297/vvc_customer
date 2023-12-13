@@ -6,10 +6,15 @@ class ArchiveList(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Archive Type"
 
-    name = fields.Char(string = "Tên người nhận")
-    phone = fields.Char(string = "Số điện thoại nhận")
-    homeLocation = fields.Char(string = "Vị trí căn hộ nhận")
-    project = fields.Char(string = "Dự án")
-    # inputTime = fields.Char(string = "Thời gian nhận")
-    # outputTime = fields.Char(string = "Thời gian trả")
-    status = fields.Selection([('store', 'Đã nhận'),('sended','Đã trả')],string = "Trạng thái")
+    user_id = fields.Many2one(
+        string='User',
+        comodel_name='customer.account',
+        ondelete='restrict',
+    )
+    name = fields.Char(string = "Tên người nhận", tracking = "True")
+    phone = fields.Char(string = "Số điện thoại nhận", tracking = "True")
+    homeLocation = fields.Char(string = "Vị trí căn hộ nhận", tracking = "True")
+    project = fields.Many2one(string = "Dự án", comodel_name='project.project')
+    inputURL = fields.Char(string = "Link hình ảnh nhận hàng")
+    outputURL = fields.Char(string = "Link hình ảnh trả hàng")
+    status = fields.Selection([('store', 'Đã nhận'),('sended','Đã trả')],string = "Trạng thái", tracking = "True")

@@ -77,10 +77,13 @@
             <form string="Chi tiết đơn hàng">
                 <sheet>
                     <group>
+                        <field name="user_id"/>
                         <field name="name"/>
                         <field name="phone"/>
                         <field name="homeLocation"/>
                         <field name="project"/>
+                        <field name="inputURL"/>
+                        <field name="outputURL"/>
                         <field name="status" />
                     </group>
                 </sheet>
@@ -112,6 +115,7 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <search>
+                <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="homeLocation"/>
