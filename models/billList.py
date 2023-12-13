@@ -6,7 +6,7 @@ class ArchiveList(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Bill Type"
 
-    user_id = fields.Many2Many(
+    user_id = fields.Many2many(
         string='User',
         comodel_name='customer.account',
     )
