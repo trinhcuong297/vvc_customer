@@ -115,7 +115,7 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <search>
-                <field name="user_id"/>
+                <!-- <field name="user_id"/> -->
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="homeLocation"/>
