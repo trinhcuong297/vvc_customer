@@ -15,3 +15,5 @@ class CustomerAccount(models.Model):
     errorNum = fields.Integer(string = "Số lỗi báo cáo")
     email = fields.Char(string = "Email đăng nhập")
     password = fields.Char(string = "Mật khẩu")
+    partner_id = fields.Char(string='')
+    
