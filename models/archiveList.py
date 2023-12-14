@@ -8,7 +8,7 @@ class ArchiveList(models.Model):
 
     user_id = fields.Many2one(
         string='User',
-        comodel_name='customer.account',
+        related='customer.account',
     )
     name = fields.Char(string = "Tên người nhận")
     phone = fields.Char(string = "Số điện thoại nhận")
@@ -17,6 +17,3 @@ class ArchiveList(models.Model):
     inputImage = fields.Image(string = "Hình ảnh nhận hàng")
     outputImage = fields.Image(string = "Hình ảnh trả hàng")
     status = fields.Selection([('store', 'Đã nhận'),('sended','Đã trả')],string = "Trạng thái")
-
-    def Archive_List(self):
-        pass
