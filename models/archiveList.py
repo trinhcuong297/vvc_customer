@@ -18,6 +18,5 @@ class ArchiveList(models.Model):
     outputImage = fields.Image(string = "Hình ảnh trả hàng")
     status = fields.Selection([('store', 'Đã nhận'),('sended','Đã trả')],string = "Trạng thái")
 
-    @api.multi 
     def Archive_List(self):
         pass
