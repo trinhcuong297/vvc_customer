@@ -18,4 +18,4 @@ class CustomerAccount(models.Model):
 
     def _compute_archive_needed(self):
         for record in self:
-            record.archive_needed = self.env['customer.archive'].search_count(['user_id','=',record.id])
+            record.archive_needed = self.env['customer.archive'].search_count(['user_id.id','=',record.id])
