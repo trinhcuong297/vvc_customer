@@ -12,9 +12,6 @@
                         <field name="phone"/>
                         <field name="homeLocation"/>
                         <field name="project"/>
-                        <field name="archiveNeeded"/>
-                        <field name="billNeeded"/>
-                        <field name="errorNum"/>
                         <field name="email"/>
                         <field name="password"/>
                     </group>
@@ -37,9 +34,6 @@
                 <field name="phone"/>
                 <field name="homeLocation"/>
                 <field name="project"/>
-                <field name="archiveNeeded"/>
-                <field name="billNeeded"/>
-                <field name="errorNum"/>
             </tree>
         </field>
     </record>
@@ -53,9 +47,6 @@
                 <field name="phone"/>
                 <field name="homeLocation"/>
                 <field name="project"/>
-                <field name="archiveNeeded"/>
-                <field name="billNeeded"/>
-                <field name="errorNum"/>
             </search>
         </field>
     </record>
@@ -77,7 +68,7 @@
             <form string="Chi tiết đơn hàng">
                 <sheet>
                     <group>
-                        <!-- <field name="user_id"/> -->
+                        <field name="user_id"/>
                         <field name="name"/>
                         <field name="phone"/>
                         <field name="homeLocation"/>
@@ -101,6 +92,7 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <tree string="List đơn hàng">
+                <field name="id"/>
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="homeLocation"/>
@@ -115,7 +107,7 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <search>
-                <!-- <field name="user_id"/> -->
+                <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="homeLocation"/>
@@ -142,8 +134,6 @@
                 <sheet>
                     <group>
                         <field name="user_id"/>
-                        <field name="homeLocation"/>
-                        <field name="project"/>
                         <field name="type"/>
                         <field name="total"/>
                         <field name="status" />
@@ -164,8 +154,6 @@
         <field name="arch" type="xml">
             <tree string="List hóa đơn">
                 <field name="user_id"/>
-                <field name="homeLocation"/>
-                <field name="project"/>
                 <field name="type"/>
                 <field name="total"/>
                 <field name="status" />
@@ -179,8 +167,6 @@
         <field name="arch" type="xml">
             <search>
                 <field name="user_id"/>
-                <field name="homeLocation"/>
-                <field name="project"/>
                 <field name="type"/>
                 <field name="total"/>
                 <field name="status" />
