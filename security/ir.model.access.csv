@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
 access.customer.account,access.customer.account,vvc_customer.model_customer_account,base.group_user,1,1,1,1
 access.customer.archive,access.customer.archive,vvc_customer.model_customer_archive,base.group_user,1,1,1,1
 access.customer.bill,access.customer.bill,vvc_customer.model_customer_bill,base.group_user,1,1,1,1
