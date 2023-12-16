@@ -16,7 +16,10 @@ class CustomerAccount(models.Model):
     job = fields.Char(string = "Nghề nghiệp")
     elevatorCard = fields.Char(string = "Thẻ thang máy")
     isCompany = fields.Boolean(string='Khách hàng doanh nghiệp?')
-    password = fields.Char(string = "Mật khẩu App")
+    
+
+    username = fields.Char(string = "Tên đăng nhập App", compute='_compute_username' )
+    password = fields.Char(string = "Mật khẩu")
 
     ground_ids = fields.Many2many(
         string='Mã mặt bằng',
@@ -27,6 +30,14 @@ class CustomerAccount(models.Model):
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
     
     partner_id = fields.Char(string='')
+
+    
+    def _compute_username(self):
+        for record in self:
+            if self.id:
+                record.username = 'user'+self.id
+            else:
+                record.username = 'username'
 
 # @api.constrains('ground_ids')
 # def check_duplicate_customer(self):
