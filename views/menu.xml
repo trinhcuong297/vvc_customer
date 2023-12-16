@@ -111,8 +111,6 @@
                 <field name="ground_ids"/>
                 <field name="block"/>
                 <field name="building"/>
-                <field name="inputImage"  widget="image"/>
-                <field name="outputImage"  widget="image"/>
                 <field name="status" />
             </tree>
         </field>
