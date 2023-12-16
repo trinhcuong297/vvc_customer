@@ -30,7 +30,6 @@ class CustomerAccount(models.Model):
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
     
     partner_id = fields.Char(string='')
-    
 
 
 class Building(models.Model):

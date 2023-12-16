@@ -82,8 +82,9 @@
                         <field name="user_id"/>
                         <field name="name"/>
                         <field name="phone"/>
-                        <field name="homeLocation"/>
-                        <field name="project"/>
+                        <field name="ground_ids"/>
+                        <field name="block"/>
+                        <field name="building"/>
                         <field name="inputImage"/>
                         <field name="outputImage"/>
                         <field name="status" />
@@ -104,10 +105,14 @@
         <field name="arch" type="xml">
             <tree string="List đơn hàng">
                 <field name="id"/>
+                <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
-                <field name="homeLocation"/>
-                <field name="project"/>
+                <field name="ground_ids"/>
+                <field name="block"/>
+                <field name="building"/>
+                <field name="inputImage"/>
+                <field name="outputImage"/>
                 <field name="status" />
             </tree>
         </field>
