@@ -41,7 +41,7 @@
                 <field name="name"></field>
                 <field name="phone"></field>
                 <field name="isCompany"></field>
-                <field name="ground_ids"></field>
+                <field name="ground_ids" widget="many2many_tags"></field>
             </tree>
         </field>
     </record>
