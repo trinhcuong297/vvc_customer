@@ -242,6 +242,28 @@
         <field name="context">{}</field>
     </record>
 
+    <!-- Setting -->
+    <record id="vvc_building_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Tòa nhà</field>
+        <field name="res_model">customer.building</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="vvc_block_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Block</field>
+        <field name="res_model">customer.block</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="vvc_ground_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Mặt bằng</field>
+        <field name="res_model">customer.ground</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
     <!-- menuitem -->
     <menuitem
             id="vvc_customer_root_menu"
@@ -272,4 +294,27 @@
             action="vvc_error_action"
             name="Báo lỗi"
             sequence="6"/>
+    <menuitem
+            parent="vvc_customer_root_menu"
+            id="vvc_setting_root"
+            name="Cài đặt"
+            sequence="7"/>
+            <menuitem
+                parent="vvc_setting_root"
+                id="vvc_setting_building"
+                action="vvc_building_action"
+                name="Tòa nhà"
+                sequence="8"/>
+            <menuitem
+                parent="vvc_setting_root"
+                id="vvc_setting_block"
+                action="vvc_block_action"
+                name="Block"
+                sequence="9"/>
+            <menuitem
+                parent="vvc_setting_root"
+                id="vvc_setting_ground"
+                action="vvc_ground_action"
+                name="Mặt bằng"
+                sequence="10"/>
 </odoo>
