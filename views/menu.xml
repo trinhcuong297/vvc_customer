@@ -79,11 +79,11 @@
             <form string="Chi tiết đơn hàng">
                 <sheet>
                     <group>
-                        <field name="user_id"/>
+                        <!-- <field name="user_id"/> -->
                         <field name="name"/>
-                        <field name="phone"/>
-                        <field name="ground_ids"/>
-                        <field name="block"/>
+                        <!-- <field name="phone"/> -->
+                        <!-- <field name="ground_ids"/> -->
+                        <!-- <field name="block"/> -->
                         <field name="building"/>
                         <field name="inputImage"/>
                         <field name="outputImage"/>
@@ -104,12 +104,12 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <tree string="List đơn hàng">
-                <field name="user_id"/>
+                <!-- <field name="user_id"/> -->
                 <field name="name"/>
                 <field name="phone"/>
-                <field name="ground_ids"/>
-                <field name="block"/>
-                <field name="building"/>
+                <!-- <field name="ground_ids"/> -->
+                <!-- <field name="block"/> -->
+                <!-- <field name="building"/> -->
                 <field name="inputImage"/>
                 <field name="outputImage"/>
                 <field name="status" />
@@ -122,12 +122,12 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <search>
-                <field name="user_id"/>
+                <!-- <field name="user_id"/> -->
                 <field name="name"/>
-                <field name="phone"/>
-                <field name="ground_ids"/>
-                <field name="block"/>
-                <field name="building"/>
+                <!-- <field name="phone"/> -->
+                <!-- <field name="ground_ids"/> -->
+                <!-- <field name="block"/> -->
+                <!-- <field name="building"/> -->
                 <field name="inputImage"/>
                 <field name="outputImage"/>
                 <field name="status" />
