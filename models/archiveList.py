@@ -10,8 +10,12 @@ class ArchiveList(models.Model):
     #     string='User',
     #     comodel_name='customer.account',
     # )
-    name = fields.Char(string = "Tên người nhận", related='user_id.name')
-    phone = fields.Char(string = "Số điện thoại nhận", related='user_id.phone')
+    name = fields.Char(string = "Tên người nhận",
+                        # related='user_id.name'
+                       )
+    phone = fields.Char(string = "Số điện thoại nhận",
+                        #  related='user_id.phone'
+                         )
     # ground_ids = fields.Many2many(
     #     string='Mã mặt bằng',
     #     comodel_name='customer.ground',
