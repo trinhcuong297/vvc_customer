@@ -18,7 +18,7 @@ class CustomerAccount(models.Model):
     isCompany = fields.Boolean(string='Khách hàng doanh nghiệp?')
     
 
-    username = fields.Char(string = "Tên đăng nhập App")
+    username = fields.Char(string = "Tên đăng nhập App", related='id')
     password = fields.Char(string = "Mật khẩu")
 
     ground_ids = fields.Many2many(
@@ -30,6 +30,14 @@ class CustomerAccount(models.Model):
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
     
     partner_id = fields.Char(string='')
+
+
+# @api.constrains('ground_ids')
+# def check_duplicate_customer(self):
+#    for account in self:
+#         if account.ground_ids:
+#             if self.search([('ground_ids', '=', account.ground_ids), ('ground_ids','!=', account.ground_ids)], limit=1):
+#                 raise ValueError(('The client reference number already exists in the system. Please enter a unique value.'))
 
 
 class Building(models.Model):
