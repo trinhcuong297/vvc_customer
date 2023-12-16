@@ -43,6 +43,7 @@
                 <field name="building"></field>
                 <field name="block"></field>
                 <field name="ground_ids" widget="many2many_tags"></field>
+                <field name="archiveCount"></field>
             </tree>
         </field>
     </record>
