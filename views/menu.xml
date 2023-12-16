@@ -104,7 +104,6 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <tree string="List đơn hàng">
-                <field name="id"/>
                 <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
@@ -123,7 +122,6 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <search>
-                <field name="id"/>
                 <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
