@@ -43,7 +43,7 @@
                 <field name="block"></field>
                 <field name="ground_ids" widget="many2many_tags"></field>
                 <field name="archiveCount"></field>
-                <field name="billCount"></field>
+                <!-- <field name="billCount"></field> -->
                 <field name="errorCount"></field>
             </tree>
         </field>

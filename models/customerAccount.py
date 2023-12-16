@@ -18,16 +18,16 @@ class CustomerAccount(models.Model):
     isCompany = fields.Boolean(string='Khách hàng doanh nghiệp?')
     password = fields.Char(string = "Mật khẩu")
     archiveCount = fields.Integer(string='Đơn hàng chưa nhận',compute='_compute_archiveCount' )
-    billCount = fields.Integer(string='Hóa đơn chưa đóng',compute='_compute_billCount' )
+    # billCount = fields.Integer(string='Hóa đơn chưa đóng',compute='_compute_billCount' )
     errorCount = fields.Integer(string='Số báo lỗi',compute='_compute_errorCount' )
         
     def _compute_archiveCount(self):
         for record in self:
             record.archiveCount = self.env['customer.archive'].search_count([('user_id','=',record.id),('status','=',"store")])
     
-    def _compute_billCount(self):
-        for record in self:
-            record.archiveCount = self.env['customer.bill'].search_count([('user_id','=',record.id),('status','=',"store")])
+    # def _compute_billCount(self):
+    #     for record in self:
+    #         record.archiveCount = self.env['customer.bill'].search_count([('user_id','=',record.id),('status','=',"store")])
 
     def _compute_errorCount(self):
         for record in self:
