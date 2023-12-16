@@ -37,10 +37,10 @@
         <field name="model">customer.account</field>
         <field name="arch" type="xml">
             <tree string="List khách hàng">
-                <field name="name"></field>
                 <field name="id"></field>
+                <field name="name"></field>
+                <field name="phone"></field>
                 <field name="isCompany"></field>
-                <field name="username"></field>
                 <field name="ground_ids"></field>
             </tree>
         </field>

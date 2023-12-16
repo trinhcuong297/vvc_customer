@@ -22,7 +22,7 @@ class CustomerAccount(models.Model):
     password = fields.Char(string = "Mật khẩu")
 
     ground_ids = fields.Many2many(
-        string='ground',
+        string='Mã mặt bằng',
         comodel_name='customer.ground',
     )
     partner_id = fields.Char(string='')
