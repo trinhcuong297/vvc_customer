@@ -123,11 +123,15 @@
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
             <search>
+                <field name="id"/>
                 <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
-                <field name="homeLocation"/>
-                <field name="project"/>
+                <field name="ground_ids"/>
+                <field name="block"/>
+                <field name="building"/>
+                <field name="inputImage"/>
+                <field name="outputImage"/>
                 <field name="status" />
             </search>
         </field>
