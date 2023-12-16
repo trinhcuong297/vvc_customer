@@ -25,6 +25,16 @@ class CustomerAccount(models.Model):
         string='Mã mặt bằng',
         comodel_name='customer.ground',
     )
+
+    building = fields.Char(
+        string='Tòa nhà',
+        related='ground_ids.building'
+    )
+    block = fields.Char(
+        string='Tòa nhà',
+        related='ground_ids.block'
+    )
+    
     partner_id = fields.Char(string='')
     
 

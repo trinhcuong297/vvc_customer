@@ -41,6 +41,8 @@
                 <field name="name"></field>
                 <field name="phone"></field>
                 <field name="isCompany"></field>
+                <field name="building"></field>
+                <field name="block"></field>
                 <field name="ground_ids" widget="many2many_tags"></field>
             </tree>
         </field>
