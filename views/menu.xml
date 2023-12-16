@@ -117,7 +117,7 @@
                 <field name="phone"/>
                 <field name="inputTime"/>
                 <field name="outputTime"/>
-                <field name="ground_ids"/>
+                <field name="ground_ids" widget="many2many_tags"/>
                 <field name="block"/>
                 <field name="building"/>
                 <field name="status" />
@@ -220,10 +220,15 @@
                 <sheet>
                     <group>
                         <field name="user_id"/>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="ground_ids"/>
+                        <field name="block"/>
+                        <field name="building"/>
                         <field name="errLocation"/>
                         <field name="desc"/>
                         <field name="imgURL"/>
-                        <field name="status" />
+                        <field name="status"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -241,10 +246,15 @@
         <field name="arch" type="xml">
             <tree string="List hóa đơn">
                 <field name="user_id"/>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="ground_ids" widget="many2many_tags"/>
+                <field name="block"/>
+                <field name="building"/>
                 <field name="errLocation"/>
                 <field name="desc"/>
                 <field name="imgURL"/>
-                <field name="status" />
+                <field name="status"/>
             </tree>
         </field>
     </record>
@@ -255,10 +265,15 @@
         <field name="arch" type="xml">
             <search>
                 <field name="user_id"/>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="ground_ids"/>
+                <field name="block"/>
+                <field name="building"/>
                 <field name="errLocation"/>
                 <field name="desc"/>
                 <field name="imgURL"/>
-                <field name="status" />
+                <field name="status"/>
             </search>
         </field>
     </record>
