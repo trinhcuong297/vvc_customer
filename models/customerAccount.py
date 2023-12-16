@@ -18,7 +18,7 @@ class CustomerAccount(models.Model):
     isCompany = fields.Boolean(string='Khách hàng doanh nghiệp?')
     
 
-    username = fields.Char(string = "Tên đăng nhập App", related='id')
+    username = fields.Char(string = "Tên đăng nhập App", compute='_compute_username' )
     password = fields.Char(string = "Mật khẩu")
 
     ground_ids = fields.Many2many(
@@ -31,6 +31,10 @@ class CustomerAccount(models.Model):
     
     partner_id = fields.Char(string='')
 
+    
+    def _compute_username(self):
+        for record in self:
+            record.username = 'user'+self.ground_ids
 
 # @api.constrains('ground_ids')
 # def check_duplicate_customer(self):
