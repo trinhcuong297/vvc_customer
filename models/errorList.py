@@ -20,6 +20,7 @@ class ArchiveList(models.Model):
     block = fields.Many2one(string = "Block", comodel_name='customer.block', related='user_id.block')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='user_id.building')
     errLocation = fields.Char(string = "Vị trí báo lỗi")
+    errTime = fields.Datetime(string = "Thời gian báo lỗi")
     desc = fields.Char(string = "Mô tả")
     imgURL = fields.Char(string = "Link ảnh mô tả")
-    status = fields.Selection([('store', 'Chưa xử lý'),('sended','Đã xử lý')],string = "Trạng thái")
+    status = fields.Selection([('err', 'Chưa xử lý'),('ok','Đã xử lý')],string = "Trạng thái")

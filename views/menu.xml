@@ -244,7 +244,7 @@
         <field name="name">customer.error.tree</field>
         <field name="model">customer.error</field>
         <field name="arch" type="xml">
-            <tree string="List hóa đơn">
+            <tree string="List hóa đơn" decoration-danger="status == 'err'">
                 <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
