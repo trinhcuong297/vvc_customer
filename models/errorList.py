@@ -22,5 +22,5 @@ class ArchiveList(models.Model):
     errLocation = fields.Char(string = "Vị trí báo lỗi")
     errTime = fields.Datetime(string = "Thời gian báo lỗi")
     desc = fields.Char(string = "Mô tả")
-    imgURL = fields.Char(string = "Link ảnh mô tả")
+    imgURL = fields.Html(string = "Link ảnh mô tả")
     status = fields.Selection([('err', 'Chưa xử lý'),('ok','Đã xử lý')],string = "Trạng thái")
