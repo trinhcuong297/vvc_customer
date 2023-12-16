@@ -23,7 +23,7 @@ class CustomerAccount(models.Model):
         
     def _compute_archiveCount(self):
         for record in self:
-            record.archiveCount = self.env['customer.archive'].search_count([('user_id','=',record.id),('status','=','"store"')])
+            record.archiveCount = self.env['customer.archive'].search_count([('user_id','=',record.id),('status','=',"store")])
         
     
 
