@@ -24,3 +24,4 @@ class ArchiveList(models.Model):
     outputTime = fields.Datetime(string = "Thời gian trả hàng")
     outputImage = fields.Image(string = "Hình ảnh trả hàng")
     status = fields.Selection([('store', 'Đã nhận'),('sended','Đã trả')],string = "Trạng thái")
+    desc = fields.Text(string = "Mô tả")

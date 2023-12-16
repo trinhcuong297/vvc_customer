@@ -89,6 +89,7 @@
                             <field name="inputTime"/>
                             <field name="outputTime"/>
                             <field name="status" />
+                            <field name="desc" />
                         </group>
                         <group>
                             <field name="inputImage" widget="image"/>
