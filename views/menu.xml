@@ -85,8 +85,8 @@
                         <field name="ground_ids"/>
                         <field name="block"/>
                         <field name="building"/>
-                        <field name="inputImage"/>
-                        <field name="outputImage"/>
+                        <field name="inputImage" widget="image"/>
+                        <field name="outputImage" widget="image"/>
                         <field name="status" />
                     </group>
                 </sheet>
@@ -111,8 +111,8 @@
                 <field name="ground_ids"/>
                 <field name="block"/>
                 <field name="building"/>
-                <field name="inputImage"/>
-                <field name="outputImage"/>
+                <field name="inputImage"  widget="image"/>
+                <field name="outputImage"  widget="image"/>
                 <field name="status" />
             </tree>
         </field>
