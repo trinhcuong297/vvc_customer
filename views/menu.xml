@@ -18,7 +18,6 @@
                         <field name="job"></field>
                         <field name="elevatorCard"></field>
                         <field name="isCompany"></field>
-                        <field name="username"></field>
                         <field name="password"></field>
                         <field name="ground_ids"></field>
                     </group>
@@ -56,7 +55,6 @@
                 <field name="name"></field>
                 <field name="id"></field>
                 <field name="isCompany"></field>
-                <field name="username"></field>
                 <field name="ground_ids"></field>
             </search>
         </field>
