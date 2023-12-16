@@ -26,12 +26,14 @@ class CustomerAccount(models.Model):
         comodel_name='customer.ground',
     )
 
-    building = fields.Char(
+    building = fields.Many2many(
         string='Tòa nhà',
+        comodel_name='customer.ground',
         related='ground_ids.building'
     )
-    block = fields.Char(
+    block = fields.Many2many(
         string='Tòa nhà',
+        comodel_name='customer.ground',
         related='ground_ids.block'
     )
     
