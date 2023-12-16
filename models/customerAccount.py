@@ -26,14 +26,8 @@ class CustomerAccount(models.Model):
         comodel_name='customer.ground',
     )
 
-    building = fields.Many2many(
-        string='Tòa nhà',
-        related='ground_ids.building'
-    )
-    block = fields.Many2many(
-        string='Tòa nhà',
-        related='ground_ids.block'
-    )
+    building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building',related='ground_ids.building')
+    block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
     
     partner_id = fields.Char(string='')
     
