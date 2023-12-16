@@ -25,4 +25,6 @@ class ArchiveList(models.Model):
     homeLocation = fields.Char(
         string='',
     )
-    
+    project = fields.Many2one(string='',
+    comodel_name='project.project'
+    )
