@@ -19,6 +19,8 @@ class ArchiveList(models.Model):
     )
     block = fields.Many2one(string = "Block", comodel_name='customer.block', related='user_id.block')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='user_id.building')
+    inputTime = fields.Datetime(string = "Thời gian nhận hàng")
     inputImage = fields.Image(string = "Hình ảnh nhận hàng")
+    outputTime = fields.Datetime(string = "Thời gian trả hàng")
     outputImage = fields.Image(string = "Hình ảnh trả hàng")
     status = fields.Selection([('store', 'Đã nhận'),('sended','Đã trả')],string = "Trạng thái")

@@ -79,15 +79,21 @@
             <form string="Chi tiết đơn hàng">
                 <sheet>
                     <group>
-                        <field name="user_id"/>
-                        <field name="name"/>
-                        <field name="phone"/>
-                        <field name="ground_ids"/>
-                        <field name="block"/>
-                        <field name="building"/>
-                        <field name="inputImage" widget="image"/>
-                        <field name="outputImage" widget="image"/>
-                        <field name="status" />
+                        <group>
+                            <field name="user_id"/>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="ground_ids"/>
+                            <field name="block"/>
+                            <field name="building"/>
+                            <field name="inputTime"/>
+                            <field name="outputTime"/>
+                            <field name="status" />
+                        </group>
+                        <group>
+                            <field name="inputImage" widget="image"/>
+                            <field name="outputImage" widget="image"/>
+                        </group>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -108,6 +114,8 @@
                 <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
+                <field name="inputTime"/>
+                <field name="outputTime"/>
                 <field name="ground_ids"/>
                 <field name="block"/>
                 <field name="building"/>
@@ -122,15 +130,17 @@
         <field name="arch" type="xml">
             <search>
                 <field name="id"/>
+                <field name="status" />
                 <field name="user_id"/>
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="ground_ids"/>
                 <field name="block"/>
+                <field name="inputTime"/>
+                <field name="outputTime"/>
                 <field name="building"/>
                 <field name="inputImage"/>
                 <field name="outputImage"/>
-                <field name="status" />
             </search>
         </field>
     </record>
