@@ -18,7 +18,7 @@ class CustomerAccount(models.Model):
     isCompany = fields.Boolean(string='Khách hàng doanh nghiệp?')
     
 
-    email = fields.Char(string = "Tên đăng nhập App")
+    username = fields.Char(string = "Tên đăng nhập App")
     password = fields.Char(string = "Mật khẩu")
 
     ground_ids = fields.Many2many(

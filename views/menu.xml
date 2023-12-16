@@ -8,12 +8,19 @@
             <form string="Chi tiết khách hàng">
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="phone"/>
-                        <field name="homeLocation"/>
-                        <field name="project"/>
-                        <field name="email"/>
-                        <field name="password"/>
+                        <field name="name"></field>
+                        <field name="birthday"></field>
+                        <field name="phone"></field>
+                        <field name="email"></field>
+                        <field name="gender"></field>
+                        <field name="IDCard"></field>
+                        <field name="studyLevel"></field>
+                        <field name="job"></field>
+                        <field name="elevatorCard"></field>
+                        <field name="isCompany"></field>
+                        <field name="username"></field>
+                        <field name="password"></field>
+                        <field name="ground_ids"></field>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -30,10 +37,11 @@
         <field name="model">customer.account</field>
         <field name="arch" type="xml">
             <tree string="List khách hàng">
-                <field name="name"/>
-                <field name="phone"/>
-                <field name="homeLocation"/>
-                <field name="project"/>
+                <field name="name"></field>
+                <field name="id"></field>
+                <field name="isCompany"></field>
+                <field name="username"></field>
+                <field name="ground_ids"></field>
             </tree>
         </field>
     </record>
@@ -43,10 +51,11 @@
         <field name="model">customer.account</field>
         <field name="arch" type="xml">
             <search>
-                <field name="name"/>
-                <field name="phone"/>
-                <field name="homeLocation"/>
-                <field name="project"/>
+                <field name="name"></field>
+                <field name="id"></field>
+                <field name="isCompany"></field>
+                <field name="username"></field>
+                <field name="ground_ids"></field>
             </search>
         </field>
     </record>
