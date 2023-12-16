@@ -109,7 +109,10 @@
         <field name="name">customer.archive.tree</field>
         <field name="model">customer.archive</field>
         <field name="arch" type="xml">
-            <tree string="List đơn hàng">
+            <tree string="List đơn hàng" 
+            decoration-success="status == 'sended'"
+            decoration-info="status == 'store'"
+            >
                 <field name="id"/>
                 <field name="user_id"/>
                 <field name="name"/>
