@@ -317,6 +317,28 @@
             </tree>
         </field>
     </record>
+    <record id="vvc_ground_action_form" model="ir.ui.view">
+        <field name="name">customer.ground.form</field>
+        <field name="model">customer.ground</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="stage"/>
+                        <field name="size"/>
+                        <field name="block"/>
+                        <field name="building" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
     <record id="vvc_ground_action" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
         <field name="name">Mặt bằng</field>
