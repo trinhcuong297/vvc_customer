@@ -297,8 +297,13 @@
             <form string="QR Code">
                 <sheet>
                     <group>
-                        <field name="qrCodeScan" widget="qr_code_widget"/>
                         <field name="timeScan"/>
+                        <field name="qrCodeScan" widget="qr_code_widget"/>
+                        <field name="type"/>
+                        <field name="ground_ids"/>
+                        <field name="block"/>
+                        <field name="building"/>
+                        <field name="recordImage"/>
                     </group>
                 </sheet>
             </form>
@@ -310,7 +315,11 @@
         <field name="model">customer.qr</field>
         <field name="arch" type="xml">
             <tree string="List QR">
-                <field name="id"></field>
+                <field name="timeScan"/>
+                <field name="type"/>
+                <field name="qrCodeScan"/>
+                <field name="ground_ids"/>
+                <field name="block"/>
             </tree>
         </field>
     </record>
