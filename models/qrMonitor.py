@@ -21,7 +21,7 @@ class QrMonitor(models.Model):
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
     recordImage = fields.Image(string = "Hình ảnh minh chứng")
 
-    @api.onchange('qrCodeScan')
+    @api.depends('qrCodeScan')
     def getGround(self):
         for rec in self:
             allGround = self.env['customer.ground']
