@@ -308,6 +308,11 @@
                         <field name="recordImage"  widget="image"/>
                     </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
@@ -328,10 +333,87 @@
         </field>
     </record>
 
+    <record id="vvc_qr_action_search" model="ir.ui.view">
+        <field name="name">customer.qr.search</field>
+        <field name="model">customer.qr</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="timeScan"/>
+                <field name="qrCodeScan"/>
+                <field name="type"/>
+                <field name="ground_ids"/>
+                <field name="block"/>
+                <field name="building"/>
+            </search>
+        </field>
+    </record>
+
     <record id="vvc_qr_action" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
         <field name="name">QR Code</field>
         <field name="res_model">customer.qr</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- pm QR -->
+    <record id="vvc_pmc_action_form" model="ir.ui.view">
+        <field name="name">customer.pmc.form</field>
+        <field name="model">customer.pmc</field>
+        <field name="arch" type="xml">
+            <form string="PMC">
+                <sheet>
+                    <group>
+                        <field name="timeScan"/>
+                        <field name="qrCodeScan" widget="qr_code_widget"/>
+                        <field name="pmQR"/>
+                        <field name="stage"/>
+                        <field name="block"/>
+                        <field name="building"/>
+                        <field name="desc"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="vvc_pmc_action_tree" model="ir.ui.view">
+        <field name="name">customer.pmc.tree</field>
+        <field name="model">customer.pmc</field>
+        <field name="arch" type="xml">
+            <tree string="List PMC">
+                <field name="timeScan"/>
+                <field name="qrCodeScan"/>
+                <field name="stage"/>
+                <field name="block"/>
+                <field name="building"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="vvc_pmc_action_search" model="ir.ui.view">
+        <field name="name">customer.pmc.search</field>
+        <field name="model">customer.pmc</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="timeScan"/>
+                <field name="qrCodeScan"/>
+                <field name="stage"/>
+                <field name="block"/>
+                <field name="building"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="vvc_pmc_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">PMC</field>
+        <field name="res_model">customer.pmc</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
     </record>
@@ -392,6 +474,13 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
     </record>
+    <record id="vvc_pm_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">PM Code</field>
+        <field name="res_model">customer.pmQR</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
     <!-- menuitem -->
     <menuitem
             id="vvc_customer_root_menu"
@@ -430,6 +519,12 @@
             sequence="7"/>
     <menuitem
             parent="vvc_customer_root_menu"
+            id="vvc_all_pmc"
+            action="vvc_pmc_action"
+            name="PMC"
+            sequence="8"/>
+    <menuitem
+            parent="vvc_customer_root_menu"
             id="vvc_setting_root"
             name="Cài đặt"
             sequence="20"/>
@@ -451,4 +546,10 @@
                 action="vvc_ground_action"
                 name="Mặt bằng"
                 sequence="28"/>
+            <menuitem
+                parent="vvc_setting_root"
+                id="vvc_setting_pmqr"
+                action="vvc_pm_action"
+                name="PM Code"
+                sequence="30"/>
 </odoo>

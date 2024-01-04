@@ -8,3 +8,4 @@ access.customer.building,access.customer.building,vvc_customer.model_customer_bu
 access.customer.block,access.customer.block,vvc_customer.model_customer_block,base.group_user,1,1,1,1
 access.customer.ground,access.customer.ground,vvc_customer.model_customer_ground,base.group_user,1,1,1,1
 access.customer.qr,access.customer.qr,vvc_customer.model_customer_qr,base.group_user,1,1,1,1
+access.customer.pmc,access.customer.pmc,vvc_customer.model_customer_qr,base.group_user,1,1,1,1
