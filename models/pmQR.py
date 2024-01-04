@@ -21,7 +21,7 @@ class PMQRMonitor(models.Model):
     desc = fields.Char(string = "Mô tả", track_visibility='onchange')
     block = fields.Many2one(string = "Block", comodel_name='customer.block', track_visibility='onchange')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='block.building')
-    pm = fields.Char(string = "Mã quản lý", track_visibility='onchange')
+    pmCode = fields.Char(string = "Mã quản lý", track_visibility='onchange')
     pmQRcode = fields.Binary('QR Quản lý', compute='_generate_p_qr')
     
     def _generate_p_qr(self):
@@ -33,7 +33,7 @@ class PMQRMonitor(models.Model):
                    box_size=3,
                    border=4,
                )
-               qr.add_data(rec.pm)
+               qr.add_data(rec.pmCode)
                qr.make(fit=True)
                img = qr.make_image()
                temp = BytesIO()
