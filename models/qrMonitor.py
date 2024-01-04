@@ -20,6 +20,8 @@ class QrMonitor(models.Model):
     )
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building',related='ground_ids.building')
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
+    water = fields.Float(string = "Chỉ số nước(m3)")
+    elec = fields.Float(string = "Chỉ số điện(kW)")
     recordImage = fields.Image(string = "Hình ảnh minh chứng")
 
     def getGround(self):
