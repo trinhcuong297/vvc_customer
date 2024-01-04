@@ -303,8 +303,8 @@
                         <field name="ground_ids"/>
                         <field name="block"/>
                         <field name="building"/>
-                        <field name="water" attrs="{'invisible': [('type', '=', 'water')]}"/>
-                        <field name="elec" attrs="{'invisible': [('type', '=', 'elec')]}"/>
+                        <field name="water" attrs="{'invisible': [('type', '=', 'elec')]}"/>
+                        <field name="elec" attrs="{'invisible': [('type', '=', 'water')]}"/>
                         <field name="recordImage"  widget="image"/>
                     </group>
                 </sheet>
@@ -320,8 +320,8 @@
                 <field name="timeScan"/>
                 <field name="type"/>
                 <field name="qrCodeScan"/>
-                <field name="water" attrs="{'invisible': [('type', '=', 'water')]}"/>
-                <field name="elec" attrs="{'invisible': [('type', '=', 'elec')]}"/>
+                <field name="water" attrs="{'invisible': [('type', '=', 'elec')]}"/>
+                <field name="elec" attrs="{'invisible': [('type', '=', 'water')]}"/>
                 <field name="ground_ids"/>
                 <field name="block"/>
             </tree>
