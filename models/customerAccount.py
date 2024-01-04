@@ -84,7 +84,7 @@ class Ground(models.Model):
     waterClockQrCode = fields.Binary('QR Đồng hồ nước', compute='_generate_w_qr')
     elecClock = fields.Char(string = "Mã đồng hồ điện")
     elecClockQrCode = fields.Binary('QR Đồng hồ điện', compute='_generate_e_qr')
-    stage = fields.Integer(string = "Số tầng")
+    stage = fields.Char(string = "Số tầng")
     size = fields.Float(string = "Diện tích mặt bằng (m2)")
     block = fields.Many2one(string = "Block", comodel_name='customer.block')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='block.building')
