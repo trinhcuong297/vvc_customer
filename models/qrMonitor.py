@@ -15,16 +15,17 @@ class QrMonitor(models.Model):
     ground_ids = fields.Many2one(
         string='Mã mặt bằng',
         comodel_name='customer.ground',
+        readonly=True
     )
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building',related='ground_ids.building')
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
     recordImage = fields.Image(string = "Hình ảnh minh chứng")
 
-    @api.depends('qrCodeScan')
+    @api.onchange('qrCodeScan')
     def getGround(self):
         for rec in self:
             allGround = self.env['customer.ground']
-            rec.ground_ids = allGround.search(['waterClock','=',rec.qrCodeScan])
+            rec.ground_ids = allGround.search([('waterClock','=',rec.qrCodeScan)], limit = 1)
 
 
 

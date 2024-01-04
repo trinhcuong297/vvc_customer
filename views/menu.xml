@@ -303,7 +303,7 @@
                         <field name="ground_ids"/>
                         <field name="block"/>
                         <field name="building"/>
-                        <field name="recordImage"/>
+                        <field name="recordImage"  widget="image"/>
                     </group>
                 </sheet>
             </form>
