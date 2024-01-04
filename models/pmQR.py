@@ -13,7 +13,7 @@ import datetime
 
 
 class PMQRMonitor(models.Model):
-    _name = 'customer.pmQR'
+    _name = 'customer.pmqr'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "PM QR Code"
 
@@ -50,7 +50,7 @@ class PMC(models.Model):
 
     qrCodeScan = fields.Char(string='qrCodeScan')
     timeScan = fields.Datetime(string='Thời gian ghi', default=lambda self: fields.Datetime.to_string(datetime.datetime.now()), readonly=True )
-    pmQR = fields.Many2one(string = "PM Code",comodel_name = 'customer.pmQR', compute='getPMQR')
+    pmQR = fields.Many2one(string = "PM Code",comodel_name = 'customer.pmqr', compute='getPMQR')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building',related='pmQR.building')
     block = fields.Many2one(
         string = "Block", 
@@ -63,6 +63,6 @@ class PMC(models.Model):
 
     def getPMQR(self):
         for rec in self:
-            allpmQR = self.env['customer.pmQR']
+            allpmQR = self.env['customer.pmqr']
             rec.pmQR = allpmQR.search([('pm','=',rec.qrCodeScan)], limit = 1)
 
