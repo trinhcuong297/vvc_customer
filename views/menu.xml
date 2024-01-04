@@ -362,6 +362,10 @@
                         <field name="size"/>
                         <field name="block"/>
                         <field name="building" />
+                        <field name="waterClock" />
+                        <field name="waterClockQrCode" />
+                        <field name="elecClock" />
+                        <field name="elecClockQrCode" />
                     </group>
                 </sheet>
             </form>

@@ -1,5 +1,14 @@
+try:
+   import qrcode
+except ImportError:
+   qrcode = None
+try:
+   import base64
+except ImportError:
+   base64 = None
+from io import BytesIO
 from odoo import api, fields, models
-
+from odoo.exceptions import UserError
 
 class CustomerAccount(models.Model):
     _name = 'customer.account'
@@ -71,9 +80,50 @@ class Ground(models.Model):
     _description = "Mặt bằng"
 
     name = fields.Char(string = "Mã mặt bằng")
+    waterClock = fields.Char(string = "Mã đồng hồ nước")
+    waterClockQrCode = fields.Binary('QR Đồng hồ nước', compute='_generate_w_qr')
+    elecClock = fields.Char(string = "Mã đồng hồ điện")
+    elecClockQrCode = fields.Binary('QR Đồng hồ điện', compute='_generate_e_qr')
     stage = fields.Integer(string = "Số tầng")
     size = fields.Float(string = "Diện tích mặt bằng (m2)")
     block = fields.Many2one(string = "Block", comodel_name='customer.block')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='block.building')
 
-  
+    def _generate_w_qr(self):
+       for rec in self:
+           if qrcode and base64:
+               qr = qrcode.QRCode(
+                   version=1,
+                   error_correction=qrcode.constants.ERROR_CORRECT_L,
+                   box_size=3,
+                   border=4,
+               )
+               qr.add_data(rec.waterClock)
+               qr.make(fit=True)
+               img = qr.make_image()
+               temp = BytesIO()
+               img.save(temp, format="PNG")
+               qr_image = base64.b64encode(temp.getvalue())
+               rec.update({'qr_code':qr_image})
+           else:
+               raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))
+    
+    def _generate_e_qr(self):
+       for rec in self:
+           if qrcode and base64:
+               qr = qrcode.QRCode(
+                   version=1,
+                   error_correction=qrcode.constants.ERROR_CORRECT_L,
+                   box_size=3,
+                   border=4,
+               )
+               qr.add_data(rec.elecClock)
+               qr.make(fit=True)
+               img = qr.make_image()
+               temp = BytesIO()
+               img.save(temp, format="PNG")
+               qr_image = base64.b64encode(temp.getvalue())
+               rec.update({'qr_code':qr_image})
+           else:
+               raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))
+               
