@@ -23,7 +23,8 @@ This module is linked with VVC Green app!
     """,
     "depends": [
         'mail',
-        'project'
+        'project',
+        'crnd_web_widget_scan_qrcode'
     ],
     "data": [
         "security/ir.model.access.csv",
