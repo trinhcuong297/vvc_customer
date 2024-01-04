@@ -80,9 +80,9 @@ class Ground(models.Model):
     _description = "Mặt bằng"
 
     name = fields.Char(string = "Mã mặt bằng")
-    waterClock = fields.Char(string = "Mã đồng hồ nước")
+    waterClock = fields.Char(string = "Mã đồng hồ nước", default = "VVCw000000")
     waterClockQrCode = fields.Binary('QR Đồng hồ nước', compute='_generate_w_qr')
-    elecClock = fields.Char(string = "Mã đồng hồ điện")
+    elecClock = fields.Char(string = "Mã đồng hồ điện", default = "VVCe000000")
     elecClockQrCode = fields.Binary('QR Đồng hồ điện', compute='_generate_e_qr')
     stage = fields.Integer(string = "Số tầng")
     size = fields.Float(string = "Diện tích mặt bằng (m2)")
