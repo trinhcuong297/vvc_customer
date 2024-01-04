@@ -474,6 +474,37 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
     </record>
+    <record id="vvc_pm_action_tree" model="ir.ui.view">
+        <field name="name">customer.pmqr.tree</field>
+        <field name="model">customer.pmqr</field>
+        <field name="arch" type="xml">
+            <tree string="List PMQR">
+                <field name="pmCode"/>
+                <field name="stage"/>
+                <field name="desc"/>
+                <field name="block"/>
+                <field name="building" />
+            </tree>
+        </field>
+    </record>
+    <record id="vvc_pm_action_form" model="ir.ui.view">
+        <field name="name">customer.pmqr.form</field>
+        <field name="model">customer.pmqr</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="stage"/>
+                        <field name="desc"/>
+                        <field name="block"/>
+                        <field name="building" />
+                        <field name="pmCode"/>
+                        <field name="pmQRcode" widget='image'/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
     <record id="vvc_pm_action" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
         <field name="name">PM Code</field>
