@@ -59,6 +59,12 @@ class PMC(models.Model):
     )
     stage = fields.Char(string = "Tầng", related = 'pmQR.stage')
     desc = fields.Char(string = "Mô tả", related = 'pmQR.desc')
+    anState = fields.Selection(string = "Đánh giá an ninh", selection=[('ok', 'Đạt'), ('fail', 'Không đạt')])
+    anComment = fields.Html(string = "Chi tiết an ninh")
+    vsState = fields.Selection(string = "Đánh giá vệ sinh", selection=[('ok', 'Đạt'), ('fail', 'Không đạt')])
+    vsComment = fields.Html(string = "Chi tiết vệ sinh")
+    ktState = fields.Selection(string = "Đánh giá kĩ thuật", selection=[('ok', 'Đạt'), ('fail', 'Không đạt')])
+    ktComment = fields.Html(string = "Chi tiết kĩ thuật")
     
 
     def getPMQR(self):

@@ -371,6 +371,12 @@
                         <field name="block"/>
                         <field name="building"/>
                         <field name="desc"/>
+                        <field name="anState"/>
+                        <field name="anComment"/>
+                        <field name="vsState"/>
+                        <field name="vsComment"/>
+                        <field name="ktState"/>
+                        <field name="ktComment"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -389,6 +395,9 @@
             <tree string="List PMC">
                 <field name="timeScan"/>
                 <field name="qrCodeScan"/>
+                <field name="anState"/>
+                <field name="vsState"/>
+                <field name="ktState"/>
                 <field name="stage"/>
                 <field name="block"/>
                 <field name="building"/>
