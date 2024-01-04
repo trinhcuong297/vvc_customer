@@ -6,5 +6,5 @@ class QrMonitor(models.Model):
     _description = "QR monitor"
 
     qrCodeScan = fields.Char(string='qrCodeScan')
-    
+    timeScan = fields.Datetime(string='Thời gian ghi', default=lambda self: fields.Datetime.to_string(datetime.now()) )
     
