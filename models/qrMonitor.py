@@ -1,5 +1,5 @@
 from odoo import api, fields, models
-
+import datetime
 
 class QrMonitor(models.Model):
     _name = 'customer.qr'

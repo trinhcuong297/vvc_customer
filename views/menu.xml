@@ -298,6 +298,7 @@
                 <sheet>
                     <group>
                         <field name="qrCodeScan" widget="qr_code_widget"/>
+                        <field name="timeScan"/>
                     </group>
                 </sheet>
             </form>
