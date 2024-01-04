@@ -289,6 +289,39 @@
         <field name="context">{}</field>
     </record>
 
+    <!-- qr code -->
+    <record id="vvc_qr_action_form" model="ir.ui.view">
+        <field name="name">customer.qr.form</field>
+        <field name="model">customer.qr</field>
+        <field name="arch" type="xml">
+            <form string="QR Code">
+                <sheet>
+                    <group>
+                        <field name="qrCodeScan" widget="qr_code_widget" options="{'show_text': False)}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="vvc_qr_action_tree" model="ir.ui.view">
+        <field name="name">customer.qr.tree</field>
+        <field name="model">customer.qr</field>
+        <field name="arch" type="xml">
+            <tree string="List QR">
+                <field name="id"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="vvc_qr_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">QR Code</field>
+        <field name="res_model">customer.qr</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
     <!-- Setting -->
     <record id="vvc_building_action" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
@@ -373,25 +406,31 @@
             sequence="6"/>
     <menuitem
             parent="vvc_customer_root_menu"
+            id="vvc_all_qr"
+            action="vvc_qr_action"
+            name="QR Code"
+            sequence="7"/>
+    <menuitem
+            parent="vvc_customer_root_menu"
             id="vvc_setting_root"
             name="Cài đặt"
-            sequence="7"/>
+            sequence="20"/>
             <menuitem
                 parent="vvc_setting_root"
                 id="vvc_setting_building"
                 action="vvc_building_action"
                 name="Tòa nhà"
-                sequence="8"/>
+                sequence="24"/>
             <menuitem
                 parent="vvc_setting_root"
                 id="vvc_setting_block"
                 action="vvc_block_action"
                 name="Block"
-                sequence="9"/>
+                sequence="26"/>
             <menuitem
                 parent="vvc_setting_root"
                 id="vvc_setting_ground"
                 action="vvc_ground_action"
                 name="Mặt bằng"
-                sequence="10"/>
+                sequence="28"/>
 </odoo>
