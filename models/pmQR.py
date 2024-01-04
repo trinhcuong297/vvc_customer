@@ -70,5 +70,5 @@ class PMC(models.Model):
     def getPMQR(self):
         for rec in self:
             allpmQR = self.env['customer.pmqr']
-            rec.pmQR = allpmQR.search([('pm','=',rec.qrCodeScan)], limit = 1)
+            rec.pmQR = allpmQR.search([('pmCode','=',rec.qrCodeScan)], limit = 1)
 
