@@ -15,7 +15,8 @@ class QrMonitor(models.Model):
     ground_ids = fields.Many2one(
         string='Mã mặt bằng',
         comodel_name='customer.ground',
-        readonly=True
+        readonly=True,
+        compute='getGround'
     )
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building',related='ground_ids.building')
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
