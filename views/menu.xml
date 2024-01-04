@@ -363,9 +363,9 @@
                         <field name="block"/>
                         <field name="building" />
                         <field name="waterClock" />
-                        <field name="waterClockQrCode" />
+                        <field name="waterClockQrCode" widget="image"/>
                         <field name="elecClock" />
-                        <field name="elecClockQrCode" />
+                        <field name="elecClockQrCode" widget="image"/>
                     </group>
                 </sheet>
             </form>
