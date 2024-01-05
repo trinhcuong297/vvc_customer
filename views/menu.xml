@@ -527,7 +527,6 @@
         <field name="arch" type="xml">
             <tree string="List phí điện">
                 <field name="name"/>
-                <field name="cost"/>
                 <field name="building" />
             </tree>
         </field>
@@ -540,8 +539,52 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="cost"/>
                         <field name="building" />
+                        <group>
+                            <field name="limit1"/>
+                            <field name="cost1"/>
+                        </group>
+                        <group>
+                            <field name="limit2"/>
+                            <field name="cost2"/>
+                        </group>
+                        <group>
+                            <field name="limit3"/>
+                            <field name="cost3"/>
+                        </group>
+                        <group>
+                            <field name="limit4"/>
+                            <field name="cost4"/>
+                        </group>
+                        <group>
+                            <field name="limit5"/>
+                            <field name="cost5"/>
+                        </group>
+                        <group>
+                            <field name="limit6"/>
+                            <field name="cost6"/>
+                        </group>
+                        <group>
+                            <field name="limit7"/>
+                            <field name="cost7"/>
+                        </group>
+                        <group>
+                            <field name="limit8"/>
+                            <field name="cost8"/>
+                        </group>
+                        <group>
+                            <field name="limit9"/>
+                            <field name="cost9"/>
+                        </group>
+                        <group>
+                            <field name="limit10"/>
+                            <field name="cost10"/>
+                        </group>
+                        <group>
+                            <field name="difType"/>
+                            <field name="difRate"/>
+                            <field name="difAbs"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -560,7 +603,6 @@
         <field name="arch" type="xml">
             <tree string="List phí nước">
                 <field name="name"/>
-                <field name="cost"/>
                 <field name="building" />
             </tree>
         </field>
@@ -573,8 +615,52 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="cost"/>
                         <field name="building" />
+                        <group>
+                            <field name="limit1"/>
+                            <field name="cost1"/>
+                        </group>
+                        <group>
+                            <field name="limit2"/>
+                            <field name="cost2"/>
+                        </group>
+                        <group>
+                            <field name="limit3"/>
+                            <field name="cost3"/>
+                        </group>
+                        <group>
+                            <field name="limit4"/>
+                            <field name="cost4"/>
+                        </group>
+                        <group>
+                            <field name="limit5"/>
+                            <field name="cost5"/>
+                        </group>
+                        <group>
+                            <field name="limit6"/>
+                            <field name="cost6"/>
+                        </group>
+                        <group>
+                            <field name="limit7"/>
+                            <field name="cost7"/>
+                        </group>
+                        <group>
+                            <field name="limit8"/>
+                            <field name="cost8"/>
+                        </group>
+                        <group>
+                            <field name="limit9"/>
+                            <field name="cost9"/>
+                        </group>
+                        <group>
+                            <field name="limit10"/>
+                            <field name="cost10"/>
+                        </group>
+                        <group>
+                            <field name="difType"/>
+                            <field name="difRate"/>
+                            <field name="difAbs"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

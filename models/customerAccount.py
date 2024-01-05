@@ -133,7 +133,7 @@ class TypeQLVHFee(models.Model):
     _description = "Loại phí QLVH"
 
     name = fields.Char(string='Loại', track_visibility='onchange')
-    cost = fields.Float(string='Giá', track_visibility='onchange')
+    cost = fields.Float(string='Giá (Nghìn)', track_visibility='onchange')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')
 
 class TypeElecFee(models.Model):
@@ -142,8 +142,35 @@ class TypeElecFee(models.Model):
     _description = "Loại phí Điện"
 
     name = fields.Char(string='Loại', track_visibility='onchange')
-    cost = fields.Float(string='Giá', track_visibility='onchange')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')
+    
+    vat = fields.Float(string='VAT (%)')
+    envProtect = fields.Float(string='Thuế bảo vệ môi trường (%)')
+
+    limit1 = fields.Float(string='Bậc 1 (m3)', track_visibility='onchange')
+    cost1 = fields.Integer(string='Giá bậc 1 (VND)', track_visibility='onchange')
+    limit2 = fields.Float(string='Bậc 2 (m3)', track_visibility='onchange')
+    cost2 = fields.Integer(string='Giá bậc 2 (VND)', track_visibility='onchange')
+    limit3 = fields.Float(string='Bậc 3 (m3)', track_visibility='onchange')
+    cost3 = fields.Integer(string='Giá bậc 3 (VND)', track_visibility='onchange')
+    limit4 = fields.Float(string='Bậc 4 (m3)', track_visibility='onchange')
+    cost4 = fields.Integer(string='Giá bậc 4 (VND)', track_visibility='onchange')
+    limit5 = fields.Float(string='Bậc 5 (m3)', track_visibility='onchange')
+    cost5 = fields.Integer(string='Giá bậc 5 (VND)', track_visibility='onchange')
+    limit6 = fields.Float(string='Bậc 6 (m3)', track_visibility='onchange')
+    cost6 = fields.Integer(string='Giá bậc 6 (VND)', track_visibility='onchange')
+    limit7 = fields.Float(string='Bậc 7 (m3)', track_visibility='onchange')
+    cost7 = fields.Integer(string='Giá bậc 7 (VND)', track_visibility='onchange')
+    limit8 = fields.Float(string='Bậc 8 (m3)', track_visibility='onchange')
+    cost8 = fields.Integer(string='Giá bậc 8 (VND)', track_visibility='onchange')
+    limit9 = fields.Float(string='Bậc 9 (m3)', track_visibility='onchange')
+    cost9 = fields.Integer(string='Giá bậc 9 (VND)', track_visibility='onchange')
+    limit10 = fields.Float(string='Bậc 10 (m3)', track_visibility='onchange')
+    cost10 = fields.Integer(string='Giá bậc 10 (VND)', track_visibility='onchange')
+
+    difType = fields.Char(string='Loại phí khác')
+    difRate = fields.Float(string='Số lượng (%)')
+    difAbs = fields.Float(string='Số lượng (VND)')
 
 class TypeWaterFee(models.Model):
     _name = 'customer.typewaterfee'
@@ -151,8 +178,35 @@ class TypeWaterFee(models.Model):
     _description = "Loại phí nước"
 
     name = fields.Char(string='Loại', track_visibility='onchange')
-    cost = fields.Float(string='Giá', track_visibility='onchange')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')
+    
+    vat = fields.Float(string='VAT (%)')
+    envProtect = fields.Float(string='Thuế bảo vệ môi trường (%)')
+
+    limit1 = fields.Float(string='Bậc 1 (m3)', track_visibility='onchange')
+    cost1 = fields.Integer(string='Giá bậc 1 (VND)', track_visibility='onchange')
+    limit2 = fields.Float(string='Bậc 2 (m3)', track_visibility='onchange')
+    cost2 = fields.Integer(string='Giá bậc 2 (VND)', track_visibility='onchange')
+    limit3 = fields.Float(string='Bậc 3 (m3)', track_visibility='onchange')
+    cost3 = fields.Integer(string='Giá bậc 3 (VND)', track_visibility='onchange')
+    limit4 = fields.Float(string='Bậc 4 (m3)', track_visibility='onchange')
+    cost4 = fields.Integer(string='Giá bậc 4 (VND)', track_visibility='onchange')
+    limit5 = fields.Float(string='Bậc 5 (m3)', track_visibility='onchange')
+    cost5 = fields.Integer(string='Giá bậc 5 (VND)', track_visibility='onchange')
+    limit6 = fields.Float(string='Bậc 6 (m3)', track_visibility='onchange')
+    cost6 = fields.Integer(string='Giá bậc 6 (VND)', track_visibility='onchange')
+    limit7 = fields.Float(string='Bậc 7 (m3)', track_visibility='onchange')
+    cost7 = fields.Integer(string='Giá bậc 7 (VND)', track_visibility='onchange')
+    limit8 = fields.Float(string='Bậc 8 (m3)', track_visibility='onchange')
+    cost8 = fields.Integer(string='Giá bậc 8 (VND)', track_visibility='onchange')
+    limit9 = fields.Float(string='Bậc 9 (m3)', track_visibility='onchange')
+    cost9 = fields.Integer(string='Giá bậc 9 (VND)', track_visibility='onchange')
+    limit10 = fields.Float(string='Bậc 10 (m3)', track_visibility='onchange')
+    cost10 = fields.Integer(string='Giá bậc 10 (VND)', track_visibility='onchange')
+
+    difType = fields.Char(string='Loại phí khác')
+    difRate = fields.Float(string='Số lượng (%)')
+    difAbs = fields.Float(string='Số lượng (VND)')
 
 class TypeCarFee(models.Model):
     _name = 'customer.typecarfee'
@@ -160,5 +214,5 @@ class TypeCarFee(models.Model):
     _description = "Loại phí xe"
 
     name = fields.Char(string='Loại', track_visibility='onchange')
-    cost = fields.Float(string='Giá', track_visibility='onchange')
+    cost = fields.Float(string='Giá (Nghìn)', track_visibility='onchange')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')
