@@ -580,7 +580,7 @@
                             <field name="limit10"/>
                             <field name="cost10"/>
                         </group>
-                        <group>
+                        <group name="Loại phí khác">
                             <field name="difType"/>
                             <field name="difRate"/>
                             <field name="difAbs"/>
@@ -656,7 +656,7 @@
                             <field name="limit10"/>
                             <field name="cost10"/>
                         </group>
-                        <group>
+                        <group name="Loại phí khác">
                             <field name="difType"/>
                             <field name="difRate"/>
                             <field name="difAbs"/>

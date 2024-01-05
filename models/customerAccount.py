@@ -169,8 +169,8 @@ class TypeElecFee(models.Model):
     cost10 = fields.Integer(string='Giá bậc 10 (VND)', track_visibility='onchange')
 
     difType = fields.Char(string='Loại phí khác')
-    difRate = fields.Float(string='Số lượng (%)')
-    difAbs = fields.Float(string='Số lượng (VND)')
+    difRate = fields.Float(string='Số lượng phí khác (%)')
+    difAbs = fields.Float(string='Số lượng phí khác (VND)')
 
 class TypeWaterFee(models.Model):
     _name = 'customer.typewaterfee'
@@ -205,8 +205,8 @@ class TypeWaterFee(models.Model):
     cost10 = fields.Integer(string='Giá bậc 10 (VND)', track_visibility='onchange')
 
     difType = fields.Char(string='Loại phí khác')
-    difRate = fields.Float(string='Số lượng (%)')
-    difAbs = fields.Float(string='Số lượng (VND)')
+    difRate = fields.Float(string='Số lượng phí khác (%)')
+    difAbs = fields.Float(string='Số lượng phí khác (VND)')
 
 class TypeCarFee(models.Model):
     _name = 'customer.typecarfee'
