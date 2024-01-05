@@ -281,7 +281,7 @@
 
     <record id="vvc_service_fee_table_action" model="ir.actions.act_window">
         <field name="type">ir.actions.act_window</field>
-        <field name="name">Hóa đơn</field>
+        <field name="name">Biểu phí dịch vụ</field>
         <field name="res_model">customer.servicefeetable</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
@@ -544,6 +544,9 @@
                         <field name="waterClockQrCode" widget="image"/>
                         <field name="elecClock" />
                         <field name="elecClockQrCode" widget="image"/>
+                        <field name="typeQLVH"/>
+                        <field name="typeElec"/>
+                        <field name="typeWater"/>
                     </group>
                 </sheet>
             </form>
@@ -840,17 +843,17 @@
             sequence="4"/>
     <menuitem
             parent="vvc_customer_root_menu"
-            id="vvc_all_bill"
+            id="vvc_all_accounting"
             name="Hóa đơn"
             sequence="5"/>
             <menuitem
-                parent="vvc_customer_root_menu"
+                parent="vvc_all_accounting"
                 id="vvc_all_bill"
                 action="vvc_bill_action"
                 name="Hóa đơn"
                 sequence="6"/>
             <menuitem
-                parent="vvc_customer_root_menu"
+                parent="vvc_all_accounting"
                 id="vvc_all_service_fee_table"
                 action="vvc_service_fee_table_action"
                 name="Biểu phí dịch vụ"
