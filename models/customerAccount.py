@@ -46,7 +46,6 @@ class CustomerAccount(models.Model):
     ground_ids = fields.Many2many(
         string='Mã mặt bằng',
         comodel_name='customer.ground',
-        compute='_compute_ground',
         auto_join=True,
         readonly=True
     )
@@ -55,10 +54,6 @@ class CustomerAccount(models.Model):
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
     
     partner_id = fields.Char(string='')
-
-    def _compute_ground(self):
-        for record in self:
-            record.ground_ids = self.env['customer.ground'].search([('ownerCustomer','=',record)])
 
 
 # @api.constrains('ground_ids')
