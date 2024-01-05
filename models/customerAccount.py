@@ -127,3 +127,38 @@ class Ground(models.Model):
            else:
                raise UserError(_('Necessary Requirements To Run This Operation Is Not Satisfied'))
                
+class TypeQLVHFee(models.Model):
+    _name = 'customer.typeqlvhfee'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _description = "Loại phí QLVH"
+
+    name = fields.Char(string='Loại', track_visibility='onchange')
+    cost = fields.Float(string='Giá', track_visibility='onchange')
+    building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')
+
+class TypeElecFee(models.Model):
+    _name = 'customer.typeelecfee'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _description = "Loại phí Điện"
+
+    name = fields.Char(string='Loại', track_visibility='onchange')
+    cost = fields.Float(string='Giá', track_visibility='onchange')
+    building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')
+
+class TypeWaterFee(models.Model):
+    _name = 'customer.typewaterfee'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _description = "Loại phí nước"
+
+    name = fields.Char(string='Loại', track_visibility='onchange')
+    cost = fields.Float(string='Giá', track_visibility='onchange')
+    building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')
+
+class TypeCarFee(models.Model):
+    _name = 'customer.typecarfee'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _description = "Loại phí xe"
+
+    name = fields.Char(string='Loại', track_visibility='onchange')
+    cost = fields.Float(string='Giá', track_visibility='onchange')
+    building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')

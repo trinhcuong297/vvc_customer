@@ -521,6 +521,138 @@
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
     </record>
+    <record id="vvc_typeelecfee_action_tree" model="ir.ui.view">
+        <field name="name">customer.typeelecfee.tree</field>
+        <field name="model">customer.typeelecfee</field>
+        <field name="arch" type="xml">
+            <tree string="List phí điện">
+                <field name="name"/>
+                <field name="cost"/>
+                <field name="building" />
+            </tree>
+        </field>
+    </record>
+    <record id="vvc_typeelecfee_action_form" model="ir.ui.view">
+        <field name="name">customer.typeelecfee.form</field>
+        <field name="model">customer.typeelecfee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="cost"/>
+                        <field name="building" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vvc_typeelecfee_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Loại phí điện</field>
+        <field name="res_model">customer.typeelecfee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="vvc_typewaterfee_action_tree" model="ir.ui.view">
+        <field name="name">customer.typewaterfee.tree</field>
+        <field name="model">customer.typewaterfee</field>
+        <field name="arch" type="xml">
+            <tree string="List phí nước">
+                <field name="name"/>
+                <field name="cost"/>
+                <field name="building" />
+            </tree>
+        </field>
+    </record>
+    <record id="vvc_typewaterfee_action_form" model="ir.ui.view">
+        <field name="name">customer.typewaterfee.form</field>
+        <field name="model">customer.typewaterfee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="cost"/>
+                        <field name="building" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vvc_typewaterfee_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Loại phí nước</field>
+        <field name="res_model">customer.typewaterfee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="vvc_typecarfee_action_tree" model="ir.ui.view">
+        <field name="name">customer.typecarfee.tree</field>
+        <field name="model">customer.typecarfee</field>
+        <field name="arch" type="xml">
+            <tree string="List phí xe">
+                <field name="name"/>
+                <field name="cost"/>
+                <field name="building" />
+            </tree>
+        </field>
+    </record>
+    <record id="vvc_typecarfee_action_form" model="ir.ui.view">
+        <field name="name">customer.typecarfee.form</field>
+        <field name="model">customer.typecarfee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="cost"/>
+                        <field name="building" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vvc_typecarfee_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Loại phí xe</field>
+        <field name="res_model">customer.typecarfee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="vvc_typeqlvhfee_action_tree" model="ir.ui.view">
+        <field name="name">customer.typeqlvhfee.tree</field>
+        <field name="model">customer.typeqlvhfee</field>
+        <field name="arch" type="xml">
+            <tree string="List phí QLVH">
+                <field name="name"/>
+                <field name="cost"/>
+                <field name="building" />
+            </tree>
+        </field>
+    </record>
+    <record id="vvc_typeqlvhfee_action_form" model="ir.ui.view">
+        <field name="name">customer.typeqlvhfee.form</field>
+        <field name="model">customer.typeqlvhfee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="cost"/>
+                        <field name="building" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="vvc_typeqlvhfee_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Loại phí QLVH</field>
+        <field name="res_model">customer.typeqlvhfee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
     <!-- menuitem -->
     <menuitem
             id="vvc_customer_root_menu"
@@ -592,4 +724,28 @@
                 action="vvc_pm_action"
                 name="PM Code"
                 sequence="30"/>
+            <menuitem
+                parent="vvc_setting_root"
+                id="vvc_setting_typeelecfee"
+                action="vvc_typeelecfee_action"
+                name="Loại phí điện"
+                sequence="31"/>
+            <menuitem
+                parent="vvc_setting_root"
+                id="vvc_setting_typewaterfee"
+                action="vvc_typewaterfee_action"
+                name="Loại phí nước"
+                sequence="32"/>
+            <menuitem
+                parent="vvc_setting_root"
+                id="vvc_setting_typecarfee"
+                action="vvc_typecarfee_action"
+                name="Loại phí xe"
+                sequence="33"/>
+            <menuitem
+                parent="vvc_setting_root"
+                id="vvc_setting_typeqlvhfee"
+                action="vvc_typeqlvhfee_action"
+                name="Loại phí QLVH"
+                sequence="34"/>
 </odoo>
