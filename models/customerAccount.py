@@ -88,6 +88,9 @@ class Ground(models.Model):
     size = fields.Float(string = "Diện tích mặt bằng (m2)")
     block = fields.Many2one(string = "Block", comodel_name='customer.block')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='block.building')
+    typeQLVH = fields.Many2one(string = "Loại phí QLVH", comodel_name='customer.typeqlvhfee')
+    typeElec = fields.Many2one(string = "Loại phí Điện", comodel_name='customer.typeelecfee')
+    typeWater = fields.Many2one(string = "Loại phí Nước", comodel_name='customer.typewaterfee')
 
     def _generate_w_qr(self):
        for rec in self:
@@ -133,7 +136,7 @@ class TypeQLVHFee(models.Model):
     _description = "Loại phí QLVH"
 
     name = fields.Char(string='Loại', track_visibility='onchange')
-    cost = fields.Float(string='Giá (Nghìn)', track_visibility='onchange')
+    cost = fields.Integer(string='Đơn giá (VND)', track_visibility='onchange')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', track_visibility='onchange')
 
 class TypeElecFee(models.Model):
