@@ -525,6 +525,9 @@
                 <field name="size"/>
                 <field name="block"/>
                 <field name="building" />
+                <field name="typeQLVH"/>
+                <field name="typeElec"/>
+                <field name="typeWater"/>
             </tree>
         </field>
     </record>

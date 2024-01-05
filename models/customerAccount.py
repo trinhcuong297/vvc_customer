@@ -45,9 +45,7 @@ class CustomerAccount(models.Model):
 
     ground_ids = fields.Many2many(
         string='Mã mặt bằng',
-        comodel_name='customer.ground',
-        auto_join=True,
-        readonly=True
+        comodel_name='customer.ground'
     )
 
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building',related='ground_ids.building')
@@ -78,7 +76,7 @@ class Ground(models.Model):
     elecClock = fields.Char(string = "Mã đồng hồ điện")
     elecClockQrCode = fields.Binary('QR Đồng hồ điện', compute='_generate_e_qr')
     stage = fields.Char(string = "Số tầng")
-    size = fields.Float(string = "Diện tích mặt bằng (m2)")
+    size = fields.Float(string = "Diện tích (m2)")
     block = fields.Many2one(string = "Block", comodel_name='customer.block', required=True)
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='block.building')
     typeQLVH = fields.Many2one(string = "Loại phí QLVH", comodel_name='customer.typeqlvhfee')
