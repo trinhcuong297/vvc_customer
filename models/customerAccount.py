@@ -8,7 +8,7 @@ except ImportError:
    base64 = None
 from io import BytesIO
 from odoo import api, fields, models
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 class CustomerAccount(models.Model):
     _name = 'customer.account'
@@ -46,12 +46,20 @@ class CustomerAccount(models.Model):
     ground_ids = fields.Many2many(
         string='Mã mặt bằng',
         comodel_name='customer.ground',
+        compute='_compute_ground',
+        auto_join=True,
+        readonly=True
     )
 
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building',related='ground_ids.building')
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
     
     partner_id = fields.Char(string='')
+
+    def _compute_ground(self):
+        for record in self:
+            record.ground_ids = self.env['customer.ground'].search([('ownerCustomer','=',record)])
+
 
 # @api.constrains('ground_ids')
 # def check_duplicate_customer(self):
@@ -91,6 +99,13 @@ class Ground(models.Model):
     typeQLVH = fields.Many2one(string = "Loại phí QLVH", comodel_name='customer.typeqlvhfee')
     typeElec = fields.Many2one(string = "Loại phí Điện", comodel_name='customer.typeelecfee')
     typeWater = fields.Many2one(string = "Loại phí Nước", comodel_name='customer.typewaterfee')
+    ownerCustomer = fields.Many2one(string = "Chủ sở hữu hiện tại", comodel_name = 'customer.account')
+
+    @api.constrains('name')
+    def check_duplicate_ground(self):
+        for rec in self:
+            if self.search([('name', '=', rec.name), ('id','!=', rec.id)], limit=1):
+                raise ValueError(('The client reference number already exists in the system. Please enter a unique value.'))
 
     def _generate_w_qr(self):
        for rec in self:
