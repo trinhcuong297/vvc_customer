@@ -14,3 +14,4 @@ access.customer.typeqlvhfee,access.customer.typeqlvhfee,vvc_customer.model_custo
 access.customer.typecarfee,access.customer.typecarfee,vvc_customer.model_customer_typecarfee,base.group_user,1,1,1,1
 access.customer.typewaterfee,access.customer.typewaterfee,vvc_customer.model_customer_typewaterfee,base.group_user,1,1,1,1
 access.customer.typeelecfee,access.customer.typeelecfee,vvc_customer.model_customer_typeelecfee,base.group_user,1,1,1,1
+access.customer.servicefeetable,access.customer.servicefeetable,vvc_customer.model_customer_servicefeetable,base.group_user,1,1,1,1
