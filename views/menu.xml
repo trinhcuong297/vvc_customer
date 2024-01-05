@@ -538,10 +538,12 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="building" />
-                        <field name="vat" />
-                        <field name="envProtect" />
+                        <group>
+                            <field name="name"/>
+                            <field name="building" />
+                            <field name="vat" />
+                            <field name="envProtect" />
+                        </group>
                         <group>
                             <field name="limit1"/>
                             <field name="cost1"/>
@@ -616,10 +618,12 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="building" />
-                        <field name="vat" />
-                        <field name="envProtect" />
+                        <group>
+                            <field name="name"/>
+                            <field name="building" />
+                            <field name="vat" />
+                            <field name="envProtect" />
+                        </group>
                         <group>
                             <field name="limit1"/>
                             <field name="cost1"/>
