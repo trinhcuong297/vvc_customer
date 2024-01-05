@@ -521,7 +521,7 @@
         <field name="arch" type="xml">
             <tree string="List mặt bằng">
                 <field name="name"/>
-                <field name="stage"/>
+                <field name="ownerCustomer"/>
                 <field name="size"/>
                 <field name="block"/>
                 <field name="building" />
@@ -540,6 +540,7 @@
                         <field name="size"/>
                         <field name="block"/>
                         <field name="building" />
+                        <field name="ownerCustomer"></field>
                         <field name="waterClock" />
                         <field name="waterClockQrCode" widget="image"/>
                         <field name="elecClock" />

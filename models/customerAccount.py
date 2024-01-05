@@ -8,7 +8,7 @@ except ImportError:
    base64 = None
 from io import BytesIO
 from odoo import api, fields, models
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import UserError
 
 class CustomerAccount(models.Model):
     _name = 'customer.account'
@@ -52,17 +52,7 @@ class CustomerAccount(models.Model):
 
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building',related='ground_ids.building')
     block = fields.Many2one(string = "Block", comodel_name='customer.block',related='ground_ids.block')
-    
     partner_id = fields.Char(string='')
-
-
-# @api.constrains('ground_ids')
-# def check_duplicate_customer(self):
-#    for account in self:
-#         if account.ground_ids:
-#             if self.search([('ground_ids', '=', account.ground_ids), ('ground_ids','!=', account.ground_ids)], limit=1):
-#                 raise ValueError(('The client reference number already exists in the system. Please enter a unique value.'))
-
 
 class Building(models.Model):
     _name = 'customer.building'
@@ -89,7 +79,7 @@ class Ground(models.Model):
     elecClockQrCode = fields.Binary('QR Đồng hồ điện', compute='_generate_e_qr')
     stage = fields.Char(string = "Số tầng")
     size = fields.Float(string = "Diện tích mặt bằng (m2)")
-    block = fields.Many2one(string = "Block", comodel_name='customer.block')
+    block = fields.Many2one(string = "Block", comodel_name='customer.block', required=True)
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='block.building')
     typeQLVH = fields.Many2one(string = "Loại phí QLVH", comodel_name='customer.typeqlvhfee')
     typeElec = fields.Many2one(string = "Loại phí Điện", comodel_name='customer.typeelecfee')
@@ -100,7 +90,7 @@ class Ground(models.Model):
     def check_duplicate_ground(self):
         for rec in self:
             if self.search([('name', '=', rec.name), ('id','!=', rec.id)], limit=1):
-                raise ValueError(('The client reference number already exists in the system. Please enter a unique value.'))
+                raise UserError(('The client reference number already exists in the system. Please enter a unique value.'))
 
     def _generate_w_qr(self):
        for rec in self:
