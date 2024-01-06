@@ -362,7 +362,7 @@
         <field name="context">{}</field>
     </record>
 
-    <!-- qr code -->
+    <!-- Điện nước -->
     <record id="vvc_qr_action_form" model="ir.ui.view">
         <field name="name">customer.qr.form</field>
         <field name="model">customer.qr</field>
@@ -376,6 +376,7 @@
                         <field name="timeScan"/>
                         <field name="qrCodeScan" widget="qr_code_widget"/>
                         <field name="type"/>
+                        <field name="monthPay"/>
                         <field name="ground_ids"/>
                         <field name="block"/>
                         <field name="building"/>
