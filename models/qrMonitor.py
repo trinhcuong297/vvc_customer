@@ -26,6 +26,21 @@ class QrMonitor(models.Model):
     elec = fields.Float(string = "Chỉ số điện(kW)", track_visibility='onchange')
     recordImage = fields.Image(string = "Hình ảnh minh chứng", track_visibility='onchange')
 
+    constMonth = fields.Selection(
+        string='Tháng chốt',
+        selection=[('1', '1'), ('2', '2'),('3', '3'),('4', '4'),('5', '5'),('6', '6'),('7', '7'),('8', '8'),('9', '9'),('10', '10'),('11', '11'),('12', '12')]
+    )
+    constYear = fields.Integer(
+        string='Năm chốt'
+    )
+    
+    status = fields.Selection(
+        string='Trạng thái',
+        selection=[('draf', 'Ghi nhận'), ('checking', 'Kiểm tra'), ('ok', 'Xác nhận')],
+        default = 'draf',
+        track_visibility='onchange'
+    )
+
     def getGround(self):
         for rec in self:
             allGround = self.env['customer.ground']
