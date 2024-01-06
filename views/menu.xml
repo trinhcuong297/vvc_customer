@@ -287,7 +287,7 @@
         <field name="context">{}</field>
     </record>
 
-       <record id="vvc_water_fee_table_action_form" model="ir.ui.view">
+    <record id="vvc_water_fee_table_action_form" model="ir.ui.view">
         <field name="name">customer.waterfeetable.form</field>
         <field name="model">customer.waterfeetable</field>
         <field name="arch" type="xml">
@@ -301,6 +301,8 @@
                         <field name="block"/>
                         <field name="building"/>
                         <field name="type"/>
+                        <field name="monthPay"/>
+                        <field name="yearPay"/>
                         <field name="oldWater"/>
                         <field name="oldNumWater"/>
                         <field name="newWater"/>
