@@ -369,7 +369,7 @@
         <field name="arch" type="xml">
             <form string="QR Code">
                 <header>
-                    <field name="status" widget="statusbar" nolabel="1"></field>
+                    <field name="status" widget="statusbar" nolabel="1" options="{'clickable': True}"/>
                 </header>
                 <sheet>
                     <group>
