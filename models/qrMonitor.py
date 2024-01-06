@@ -7,7 +7,7 @@ class QrMonitor(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "QR monitor"
 
-    qrCodeScan = fields.Char(string='qrCodeScan')
+    qrCodeScan = fields.Char(string='qrCodeScan', required=True)
     timeScan = fields.Datetime(string='Thời gian ghi', default=lambda self: fields.Datetime.to_string(datetime.datetime.now()), readonly=True )
     invokeTime = fields.Date(
         string='field_name',
@@ -17,7 +17,8 @@ class QrMonitor(models.Model):
     type = fields.Selection(
         string='Loại',
         selection=[('water', 'Chỉ số nước'), ('elec', 'Chỉ số điện')],
-        default = 'water'
+        default = 'water',
+        readonly=True
     )
     monthPay = fields.Selection(
         string='Chốt số tháng',
@@ -53,12 +54,17 @@ class QrMonitor(models.Model):
         for rec in self:
             allGround = self.env['customer.ground']
             rec.ground_ids = allGround.search([('waterClock','=',rec.qrCodeScan)], limit = 1)
+            if rec.ground_ids:
+                rec.type = 'water'
+            else:
+                rec.ground_ids = allGround.search([('elecClock','=',rec.qrCodeScan)], limit = 1)
+                rec.type = 'elec'
 
     @api.constrains('monthPay')
     def check_duplicate_qr_res(self):
         for rec in self:
-            if self.search([('monthPay', '=', rec.monthPay), ('yearPay','=', rec.yearPay), ('ground_ids','=', rec.ground_ids)], limit=1):
-                raise UserError(('The client reference number already exists in the system. Please enter a unique value.'))
+            if self.search([('monthPay', '=', rec.monthPay),('type','=', rec.type), ('yearPay','=', rec.yearPay), ('qrCodeScan','=', rec.qrCodeScan), ('id','!=', rec.id)], limit=1):
+                raise UserError(('The record already exists in the system. Please enter a unique value.'))
 
 
 
