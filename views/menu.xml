@@ -373,19 +373,21 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="timeScan"/>
-                        <field name="qrCodeScan" widget="qr_code_widget"/>
-                        <field name="ground_ids"/>
-                        <field name="block"/>
-                        <field name="building"/>
-                        <field name="recordImage"  widget="image"/>
-                    </group>
-                    <group>
-                        <field name="monthPay"/>
-                        <field name="yearPay"/>
-                        <field name="type"/>
-                        <field name="water" attrs="{'invisible': [('type', '=', 'elec')]}"/>
-                        <field name="elec" attrs="{'invisible': [('type', '=', 'water')]}"/>
+                        <group>
+                            <field name="timeScan"/>
+                            <field name="qrCodeScan" widget="qr_code_widget"/>
+                            <field name="ground_ids"/>
+                            <field name="block"/>
+                            <field name="building"/>
+                            <field name="recordImage"  widget="image"/>
+                        </group>
+                        <group>
+                            <field name="monthPay"/>
+                            <field name="yearPay"/>
+                            <field name="type"/>
+                            <field name="water" attrs="{'invisible': [('type', '=', 'elec')]}"/>
+                            <field name="elec" attrs="{'invisible': [('type', '=', 'water')]}"/>
+                        </group>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
