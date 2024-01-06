@@ -60,13 +60,6 @@ class WaterFeeTable(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Water Fee Table"
 
-    @api.onchange('ground_ids')
-    def _onchange_ground_ids(self):
-        for rec in self:
-            return {'domain':{'oldWater': [('ground_ids','=',rec.ground_ids)]}}
-    
-    
-
     name = fields.Char(string = "Tên biểu phí", default='Phí nước', readonly=True)
     ground_ids = fields.Many2one(
         string='Mã mặt bằng',
@@ -85,9 +78,9 @@ class WaterFeeTable(models.Model):
         default=lambda self: str(datetime.date.today().month)
     )
     yearPay = fields.Char(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
-    oldWater = fields.Many2one(string="Phiếu nước tháng trước", comodel_name="customer.qr")
+    oldWater = fields.Many2one(string="Phiếu nước tháng trước", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids.name)])
     oldNumWater = fields.Float(string = "Chỉ số nước trước(m3)", related='oldWater.water')
-    newWater = fields.Many2one(string="Phiếu nước tháng này", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids)])
+    newWater = fields.Many2one(string="Phiếu nước tháng này", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids.name)])
     newNumWater = fields.Float(string = "Chỉ số nước hiện tại(m3)", related='newWater.water')
     waterUsedNum = fields.Float(string = "Số nước tiêu thụ(m3)", compute='_compute_waterUsedNum')
     totalBefore = fields.Float(string = "Số tiền cần trả", compute='_compute_total_before')
