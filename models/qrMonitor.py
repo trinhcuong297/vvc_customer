@@ -8,11 +8,26 @@ class QrMonitor(models.Model):
 
     qrCodeScan = fields.Char(string='qrCodeScan')
     timeScan = fields.Datetime(string='Thời gian ghi', default=lambda self: fields.Datetime.to_string(datetime.datetime.now()), readonly=True )
+    invokeTime = fields.Date(
+        string='field_name',
+        default=fields.Date.context_today,
+    )
+    
     type = fields.Selection(
         string='Loại',
         selection=[('water', 'Chỉ số nước'), ('elec', 'Chỉ số điện')],
         default = 'water'
     )
+    monthPay = fields.Selection(
+        string='Tháng',
+        selection=[('1', 'January'), ('2', 'February'), ('3', 'March'), ('4', 'April'),
+                          ('5', 'May'), ('6', 'June'), ('7', 'July'), ('8', 'August'), 
+                          ('9', 'September'), ('10', 'October'), ('11', 'November'), ('12', 'December'), ],
+        
+        default=lambda self: fields.Selections.to_string(datetime.date.today().month)
+        
+    )
+    
     ground_ids = fields.Many2one(
         string='Mã mặt bằng',
         comodel_name='customer.ground',
@@ -26,17 +41,9 @@ class QrMonitor(models.Model):
     elec = fields.Float(string = "Chỉ số điện(kW)", track_visibility='onchange')
     recordImage = fields.Image(string = "Hình ảnh minh chứng", track_visibility='onchange')
 
-    constMonth = fields.Selection(
-        string='Tháng chốt',
-        selection=[('1', '1'), ('2', '2'),('3', '3'),('4', '4'),('5', '5'),('6', '6'),('7', '7'),('8', '8'),('9', '9'),('10', '10'),('11', '11'),('12', '12')]
-    )
-    constYear = fields.Integer(
-        string='Năm chốt'
-    )
-    
     status = fields.Selection(
         string='Trạng thái',
-        selection=[('draf', 'Ghi nhận'), ('checking', 'Kiểm tra'), ('ok', 'Xác nhận')],
+        selection=[('draf', 'Ghi nhận'), ('checking', 'Kiểm tra'), ('ok', 'Xác nhận'), ('err', 'Hủy')],
         default = 'draf',
         track_visibility='onchange'
     )
