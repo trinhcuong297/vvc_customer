@@ -371,7 +371,7 @@
                 <header>
                     <field name="status" widget="statusbar" nolabel="1" options="{'clickable': True}"/>
                 </header>
-                <sheet attrs="{'readonly': ['status', '!=', 'draf']}">
+                <sheet attrs="{'readonly': [('status', '!=', 'draf')]}">
                     <group>
                         <group>
                             <field name="timeScan"/>
