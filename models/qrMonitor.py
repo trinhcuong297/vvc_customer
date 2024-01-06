@@ -68,7 +68,7 @@ class QrMonitor(models.Model):
 
     def _compute_name(self):
         for record in self:
-            record.name = record.type + " " + record.monthPay + "/"+ record.yearPay
+            record.name = record.type + " " + str(record.monthPay) + "/"+ str(record.yearPay)
 
 
 
