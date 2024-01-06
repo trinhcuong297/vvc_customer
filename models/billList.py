@@ -162,7 +162,7 @@ class WaterFeeTable(models.Model):
         for record in self:
             allRec = self.env['customer.qr']
             if record.monthPay:
-                month = record.monthPay - 1
+                month = int(record.monthPay) - 1
                 if month == 0:
                     month = 12
                     year = record.yearPay - 1
