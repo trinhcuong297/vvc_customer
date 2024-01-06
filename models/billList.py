@@ -110,6 +110,7 @@ class WaterFeeTable(models.Model):
     @api.depends('waterUsedNum')
     def _compute_total_before(self):
         for record in self:
+            total = 0
             if 0 < record.waterUsedNum <= record.limit1:
                 total = (record.waterUsedNum - 0)*record.cost1
             elif record.limit1 < record.waterUsedNum <= record.limit2:
