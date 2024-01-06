@@ -74,6 +74,9 @@ class WaterFeeTable(models.Model):
     newWater = fields.Many2one(string="Phiếu nước tháng này", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok')])
     newNumWater = fields.Float(string = "Chỉ số nước hiện tại(m3)", related='newWater.water')
     waterUsedNum = fields.Float(string = "Số nước tiêu thụ(m3)", compute='_compute_waterUsedNum')
+    totalBefore = fields.Float(string = "Số tiền cần trả", compute='_compute_total_before')
+    totalVAT = fields.Float(string = "Thuế VAT", compute='_compute_vat')
+    totalBVMT = fields.Float(string = "Thuế bảo vệ môi trường", compute='_compute_bvmt')
     total = fields.Float(string = "Số tiền cần trả", compute='_compute_total')
     status = fields.Selection([('store', 'Chưa phát hành hóa đơn'),('sended','Đã phát hành hóa đơn')],string = "Trạng thái")
 
@@ -105,7 +108,7 @@ class WaterFeeTable(models.Model):
     difAbs = fields.Float(string='Số lượng phí khác (VND)', related='ground_ids.typeWater.difAbs')
 
     @api.depends('waterUsedNum')
-    def _compute_total(self):
+    def _compute_total_before(self):
         for record in self:
             if 0 < record.waterUsedNum <= record.limit1:
                 total = (record.waterUsedNum - 0)*record.cost1
@@ -127,8 +130,24 @@ class WaterFeeTable(models.Model):
                 total = (record.waterUsedNum - record.limit8)*record.cost9 + (record.limit8 - record.limit7)*record.cost8 + (record.limit7 - record.limit6)*record.cost7 + (record.limit6 - record.limit5)*record.cost6 + (record.limit5 - record.limit4)*record.cost5 + (record.limit4 - record.limit3)*record.cost4 + (record.limit3 - record.limit2)*record.cost3 + (record.limit2 - record.limit1)*record.cost2 + record.limit1*record.cost1
             elif record.limit9 < record.waterUsedNum <= record.limit10:
                 total = (record.waterUsedNum - record.limit9)*record.cost10 + (record.limit9 - record.limit8)*record.cost9 + (record.limit8 - record.limit7)*record.cost8 + (record.limit7 - record.limit6)*record.cost7 + (record.limit6 - record.limit5)*record.cost6 + (record.limit5 - record.limit4)*record.cost5 + (record.limit4 - record.limit3)*record.cost4 + (record.limit3 - record.limit2)*record.cost3 + (record.limit2 - record.limit1)*record.cost2 + record.limit1*record.cost1
-            record.total = total
+            record.totalBefore = total
 
     def _compute_waterUsedNum(self):
         for record in self:
             record.waterUsedNum = record.newNumWater - record.oldNumWater
+
+    @api.depends('totalBefore')
+    def _compute_vat(self):
+        for record in self:
+            record.totalVAT = record.totalBefore*record.vat/100
+    
+    @api.depends('totalBefore')
+    def _compute_bvmt(self):
+        for record in self:
+            record.totalBVMT = record.totalBefore*record.envProtect/100
+
+    def _compute_total(self):
+        for record in self:
+            record.total = record.totalBefore + record.totalVAT + record.totalBVMT
+
+    
