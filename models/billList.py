@@ -136,12 +136,10 @@ class WaterFeeTable(models.Model):
         for record in self:
             record.waterUsedNum = record.newNumWater - record.oldNumWater
 
-    @api.depends('totalBefore')
     def _compute_vat(self):
         for record in self:
             record.totalVAT = record.totalBefore*record.vat/100
     
-    @api.depends('totalBefore')
     def _compute_bvmt(self):
         for record in self:
             record.totalBVMT = record.totalBefore*record.envProtect/100
