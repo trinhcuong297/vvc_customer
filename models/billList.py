@@ -78,7 +78,7 @@ class WaterFeeTable(models.Model):
         default=lambda self: str(datetime.date.today().month)
     )
     yearPay = fields.Char(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
-    oldWater = fields.Many2one(string="Phiếu nước tháng trước", comodel_name="customer.qr", domain=lambda self: [('type','=','water'),('status','=','ok'),('ground_ids','=',self.ground_ids)])
+    oldWater = fields.Many2one(string="Phiếu nước tháng trước", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids.id)])
     oldNumWater = fields.Float(string = "Chỉ số nước trước(m3)", related='oldWater.water')
     newWater = fields.Many2one(string="Phiếu nước tháng này", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids)])
     newNumWater = fields.Float(string = "Chỉ số nước hiện tại(m3)", related='newWater.water')
