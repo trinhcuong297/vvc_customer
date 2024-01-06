@@ -60,7 +60,7 @@ class QrMonitor(models.Model):
                 rec.ground_ids = allGround.search([('elecClock','=',rec.qrCodeScan)], limit = 1)
                 rec.type = 'elec'
 
-    @api.constrains('monthPay')
+    @api.constrains('status')
     def check_duplicate_qr_res(self):
         for rec in self:
             if self.search([('monthPay', '=', rec.monthPay),('type','=', rec.type), ('yearPay','=', rec.yearPay), ('qrCodeScan','=', rec.qrCodeScan), ('id','!=', rec.id)], limit=1):
