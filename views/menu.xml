@@ -301,8 +301,6 @@
                         <field name="block"/>
                         <field name="building"/>
                         <field name="type"/>
-                        <field name="monthPay"/>
-                        <field name="yearPay"/>
                         <field name="oldWater"/>
                         <field name="oldNumWater"/>
                         <field name="newWater"/>

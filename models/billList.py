@@ -77,10 +77,10 @@ class WaterFeeTable(models.Model):
         
         default=lambda self: str(datetime.date.today().month)
     )
-    yearPay = fields.Integer(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
-    oldWater = fields.Many2one(string="Phiếu nước tháng trước", comodel_name="customer.qr", compute="_compute_old_water")
+    yearPay = fields.Char(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
+    oldWater = fields.Many2one(string="Phiếu nước tháng trước", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids)])
     oldNumWater = fields.Float(string = "Chỉ số nước trước(m3)", related='oldWater.water')
-    newWater = fields.Many2one(string="Phiếu nước tháng này", comodel_name="customer.qr", compute="_compute_new_water")
+    newWater = fields.Many2one(string="Phiếu nước tháng này", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids)])
     newNumWater = fields.Float(string = "Chỉ số nước hiện tại(m3)", related='newWater.water')
     waterUsedNum = fields.Float(string = "Số nước tiêu thụ(m3)", compute='_compute_waterUsedNum')
     totalBefore = fields.Float(string = "Số tiền cần trả", compute='_compute_total_before')
@@ -157,22 +157,5 @@ class WaterFeeTable(models.Model):
     def _compute_total(self):
         for record in self:
             record.total = record.totalBefore + record.totalVAT + record.totalBVMT
-
-    def _compute_old_water(self):
-        for record in self:
-            allRec = self.env['customer.qr']
-            if record.monthPay:
-                month = int(record.monthPay) - 1
-                if month == 0:
-                    month = 12
-                    year = record.yearPay - 1
-                else:
-                    year = record.yearPay
-                record.oldWater = allRec.search([('type','=','water'),('status','=','ok'),('ground_ids','=',record.ground_ids), ('name','=', 'water '+str(month)+'/'+str(year))], limit = 1)
-
-    def _compute_new_water(self):
-        for record in self:
-            allRec = self.env['customer.qr']
-            record.newWater = allRec.search([('type','=','water'),('status','=','ok'),('ground_ids','=',record.ground_ids),('monthPay','=',record.monthPay),('yearPay','=',record.yearPay)], limit = 1)
 
     
