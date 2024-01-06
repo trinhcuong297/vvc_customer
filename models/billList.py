@@ -1,5 +1,5 @@
 from odoo import api, fields, models
-
+import datetime
 
 class BillList(models.Model):
     _name = 'customer.bill'
@@ -69,9 +69,18 @@ class WaterFeeTable(models.Model):
     title = fields.Many2one(string = "Tiêu đề", comodel_name='customer.monthfee')
     building = fields.Many2one(string = "Tòa nhà", comodel_name='customer.building', related='ground_ids.building')
     size = fields.Float(string = "Diện tích mặt bằng (m2)", related='ground_ids.size')
-    oldWater = fields.Many2one(string="Phiếu nước tháng trước", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids)])
+    monthPay = fields.Selection(
+        string='Chốt số tháng',
+        selection=[('1', 'Tháng 1'), ('2', 'Tháng 2'), ('3', 'Tháng 3'), ('4', 'Tháng 4'),
+                          ('5', 'Tháng 5'), ('6', 'Tháng 6'), ('7', 'Tháng 7'), ('8', 'Tháng 8'), 
+                          ('9', 'Tháng 9'), ('10', 'Tháng 10'), ('11', 'Tháng 11'), ('12', 'Tháng 12'), ],
+        
+        default=lambda self: str(datetime.date.today().month)
+    )
+    yearPay = fields.Integer(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
+    oldWater = fields.Many2one(string="Phiếu nước tháng trước", comodel_name="customer.qr", compute="_compute_old_water")
     oldNumWater = fields.Float(string = "Chỉ số nước trước(m3)", related='oldWater.water')
-    newWater = fields.Many2one(string="Phiếu nước tháng này", comodel_name="customer.qr", domain=[('type','=','water'),('status','=','ok'),('ground_ids','=',ground_ids)])
+    newWater = fields.Many2one(string="Phiếu nước tháng này", comodel_name="customer.qr", compute="_compute_new_water")
     newNumWater = fields.Float(string = "Chỉ số nước hiện tại(m3)", related='newWater.water')
     waterUsedNum = fields.Float(string = "Số nước tiêu thụ(m3)", compute='_compute_waterUsedNum')
     totalBefore = fields.Float(string = "Số tiền cần trả", compute='_compute_total_before')
@@ -148,5 +157,22 @@ class WaterFeeTable(models.Model):
     def _compute_total(self):
         for record in self:
             record.total = record.totalBefore + record.totalVAT + record.totalBVMT
+
+    def _compute_old_water(self):
+        for record in self:
+            allRec = self.env['customer.qr']
+            if record.monthPay:
+                month = record.monthPay - 1
+                if month == 0:
+                    month = 12
+                    year = record.yearPay - 1
+                else:
+                    year = record.yearPay
+                record.oldWater = allRec.search([('type','=','water'),('status','=','ok'),('ground_ids','=',record.ground_ids), ('name','=', 'water '+str(month)+'/'+str(year))], limit = 1)
+
+    def _compute_new_water(self):
+        for record in self:
+            allRec = self.env['customer.qr']
+            record.newWater = allRec.search([('type','=','water'),('status','=','ok'),('ground_ids','=',record.ground_ids),('monthPay','=',record.monthPay),('yearPay','=',record.yearPay)], limit = 1)
 
     

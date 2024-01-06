@@ -28,7 +28,7 @@ class QrMonitor(models.Model):
         
         default=lambda self: str(datetime.date.today().month)
     )
-    yearPay = fields.Char(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
+    yearPay = fields.Integer(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
     name = fields.Char(string="Tiêu đề", compute='_compute_name')
     ground_ids = fields.Many2one(
         string='Mã mặt bằng',
