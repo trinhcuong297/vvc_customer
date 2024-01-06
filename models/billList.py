@@ -63,7 +63,7 @@ class WaterFeeTable(models.Model):
     @api.onchange('ground_ids')
     def _onchange_ground_ids(self):
         for rec in self:
-            return {'domain':{'oldWater': [('ground_ids','=',rec.ground_ids.id)]}}
+            return {'domain':{'oldWater': [('ground_ids','=',rec.ground_ids)]}}
     
     
 
