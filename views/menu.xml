@@ -310,7 +310,6 @@
                         <field name="totalVAT"/>
                         <field name="totalBVMT"/>
                         <field name="total"/>
-                        <field name="waterUsedNum"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -328,14 +327,13 @@
         <field name="arch" type="xml">
             <tree string="List biểu phí nước">
                 <field name="ground_ids"/>
-                <field name="block"/>
-                <field name="building"/>
-                <field name="type"/>
-                <field name="cost"/>
-                <field name="size"/>
-                <field name="total"/>
                 <field name="title"/>
-                <field name="status"/>
+                <field name="type"/>
+                <field name="waterUsedNum"/>
+                <field name="totalBefore"/>
+                <field name="totalVAT"/>
+                <field name="totalBVMT"/>
+                <field name="total"/>
             </tree>
         </field>
     </record>
