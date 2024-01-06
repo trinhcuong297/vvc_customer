@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import UserError
 import datetime
 
 class QrMonitor(models.Model):
@@ -52,6 +53,13 @@ class QrMonitor(models.Model):
         for rec in self:
             allGround = self.env['customer.ground']
             rec.ground_ids = allGround.search([('waterClock','=',rec.qrCodeScan)], limit = 1)
+
+    @api.constrains('monthPay')
+    def check_duplicate_qr_res(self):
+        for rec in self:
+            if self.search([('monthPay', '=', rec.monthPay), ('yearPay','=', rec.yearPay), ('ground_ids','=', rec.ground_ids)], limit=1):
+                raise UserError(('The client reference number already exists in the system. Please enter a unique value.'))
+
 
 
 
