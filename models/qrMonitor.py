@@ -29,7 +29,7 @@ class QrMonitor(models.Model):
         default=lambda self: str(datetime.date.today().month)
     )
     yearPay = fields.Char(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
-    
+    name = fields.Char(string="Tiêu đề", compute='_compute_title')
     ground_ids = fields.Many2one(
         string='Mã mặt bằng',
         comodel_name='customer.ground',
@@ -66,7 +66,9 @@ class QrMonitor(models.Model):
             if self.search([('monthPay', '=', rec.monthPay),('type','=', rec.type), ('yearPay','=', rec.yearPay), ('qrCodeScan','=', rec.qrCodeScan), ('id','!=', rec.id)], limit=1):
                 raise UserError(('The record already exists in the system. Please enter a unique value.'))
 
-
+    def _compute_title(self):
+        for record in self:
+            record.title = record.type + " " + record.monthPay + "/"+ record.yearPay
 
 
 
