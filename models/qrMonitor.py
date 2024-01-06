@@ -19,14 +19,14 @@ class QrMonitor(models.Model):
         default = 'water'
     )
     monthPay = fields.Selection(
-        string='Tháng',
-        selection=[('1', 'January'), ('2', 'February'), ('3', 'March'), ('4', 'April'),
-                          ('5', 'May'), ('6', 'June'), ('7', 'July'), ('8', 'August'), 
-                          ('9', 'September'), ('10', 'October'), ('11', 'November'), ('12', 'December'), ],
+        string='Chốt số tháng',
+        selection=[('1', 'Tháng 1'), ('2', 'Tháng 2'), ('3', 'Tháng 3'), ('4', 'Tháng 4'),
+                          ('5', 'Tháng 5'), ('6', 'Tháng 6'), ('7', 'Tháng 7'), ('8', 'Tháng 8'), 
+                          ('9', 'Tháng 9'), ('10', 'Tháng 10'), ('11', 'Tháng 11'), ('12', 'Tháng 12'), ],
         
         default=lambda self: str(datetime.date.today().month)
-        
     )
+    yearPay = fields.Char(string='Chốt số năm',default=lambda self: str(datetime.date.today().year))
     
     ground_ids = fields.Many2one(
         string='Mã mặt bằng',
@@ -43,7 +43,7 @@ class QrMonitor(models.Model):
 
     status = fields.Selection(
         string='Trạng thái',
-        selection=[('draf', 'Ghi nhận'), ('checking', 'Kiểm tra'), ('ok', 'Xác nhận'), ('err', 'Hủy')],
+        selection=[('draf', 'Ghi nhận'), ('ok', 'Chấp nhận'), ('err', 'Hủy')],
         default = 'draf',
         track_visibility='onchange'
     )
