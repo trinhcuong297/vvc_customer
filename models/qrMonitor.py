@@ -24,7 +24,7 @@ class QrMonitor(models.Model):
                           ('5', 'May'), ('6', 'June'), ('7', 'July'), ('8', 'August'), 
                           ('9', 'September'), ('10', 'October'), ('11', 'November'), ('12', 'December'), ],
         
-        default=lambda self: fields.Selection.to_string(datetime.date.today().month)
+        default=lambda self: str(datetime.date.today().month)
         
     )
     
